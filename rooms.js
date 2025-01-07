@@ -19,6 +19,8 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     chek_sources: function(){
+        delete Memory.rooms;
+        delete Memory.rooms.sources;
         const spawn = this.spawn;
         let arr_spawn = [];
         for (let name in spawn){
@@ -39,7 +41,7 @@ module.exports = {
             for (let s = 0; s<position.length; s++){
                 r+=getTerr(terrain,sourc[name].pos.x+position[s][0], sourc[name].pos.y+position[s][1]);
             }
-            Memory.rooms.sources = {name_sources: {id: sourc[name].id,emptiness:r}};
+            Memory.rooms.sources = {[name_sources]: {id: sourc[name].id,emptiness:r}};
             r = 0;
             i++;
         }
