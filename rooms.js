@@ -61,6 +61,7 @@ module.exports = {
         }
         arr_spawn[0].room.memory = this.sources.reduce((acc,item)=> {return {...acc, ...item},{}});
         arr_spawn[0].room.memory.event = 'timeOut';
+        console.log(this.sources);
     },
     timeOut: function(){
 
