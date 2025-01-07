@@ -42,7 +42,7 @@ module.exports = {
             for (let s = 0; s<position.length; s++){
                 r+=getTerr(terrain,sourc[name].pos.x+position[s][0], sourc[name].pos.y+position[s][1]);
             }
-            this.sources.push({name_sources: {id: sourc[name].id,emptiness:r}});
+            this.sources.push({id: sourc[name].id,emptiness:r});
             r = 0;
             i++;
         }
@@ -59,7 +59,7 @@ module.exports = {
                     break;
             }
         }
-        arr_spawn[0].room.memory = this.sources.reduce((acc,item)=> {return {...acc, ...item},{}});
+        arr_spawn[0].room.memory = this.sources;
         arr_spawn[0].room.memory.event = 'timeOut';
         console.log(this.sources);
     },
