@@ -20,9 +20,7 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     chek_sources: function(){
-        delete Memory.rooms;
         delete Memory.rooms.sources;
-        Memory.rooms = {};
         const spawn = this.spawn;
         let arr_spawn = [];
         for (let name in spawn){
