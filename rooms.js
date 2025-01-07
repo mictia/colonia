@@ -4,7 +4,7 @@ module.exports = {
      */
     run: function(spawn){
         this.spawn = spawn;
-        Memory.rooms.event = undefined;
+        Memory = {rooms:{}};
         this.event = Memory.rooms.event;
         console.log('Rooms.run()');
         if (this.event === undefined){
