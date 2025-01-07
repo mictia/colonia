@@ -3,9 +3,8 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     run: function(spawn){
-        debugger;
         this.spawn = spawn;
-        this.event = '';
+        Memory.rooms.event = undefined;
         this.event = Memory.rooms.event;
         console.log('Rooms.run()'+ this.event);
         if (this.event === undefined){
