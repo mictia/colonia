@@ -4,7 +4,6 @@ const sp = require('rooms');
 
 module.exports.loop = function () {
     console.log("START");
-    Memory.rooms.events = '';
     const sps = new sp.run(Game.spawns);
     for (let name in Game.creeps){
         mc.run(Game.creeps[name]);
