@@ -14,7 +14,7 @@ module.exports = {
         this[event]();
     },
     save: function(){
-        //Memory.rooms.event = this.event;
+        Memory.rooms.event = this.event;
     },
 
  
@@ -60,8 +60,7 @@ module.exports = {
             }
         }
         arr_spawn[0].room.memory.sources = this.sources;
-        arr_spawn[0].room.memory.event = 'timeOut';
-        console.log(this.sources);
+        Memory.rooms.event = this.event = 'timeOut';
     },
     timeOut: function(){
 
