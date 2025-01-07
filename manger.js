@@ -12,3 +12,8 @@ class manger {
     }
 
 }
+
+
+module.exports = {
+    man: new manger()
+}
