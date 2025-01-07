@@ -11,8 +11,7 @@ module.exports = {
             event = 'chek_sources';
         }
         this.event = event;
-        this[event]();
-        //this['save']();
+        this.[event]();
     },
     save: function(){
         Memory.rooms.event = this.event;
