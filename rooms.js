@@ -10,12 +10,15 @@ module.exports = {
         if (event === undefined){
             event = 'chek_sources';
         }
-        this['save']();
+        this.r['save']();
         this.event = event;
         this[event]();
     },
-    save: function(){
-        Memory.rooms.event = this.event;
+    r:{
+        save: function(){
+            Memory.rooms.event = this.event;
+        },
+
     },
         /**
      * @param {StructureSpawn} spawn
