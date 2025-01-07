@@ -1,6 +1,6 @@
-var MN = require('manger');
+//var MN = require('manger');
 
 module.exports.loop = function () {
 
-    let nm = new MN.manger(Game.spawns['Spawn1']);
+    let nm = new manger(Game.spawns['Spawn1']);
 }
