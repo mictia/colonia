@@ -5,7 +5,7 @@ class manger {
 
 
     constructor(spawn){
-        console.log(spawn)
+        console.log(spawn);
     }
     mov(params) {
         
