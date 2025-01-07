@@ -10,7 +10,6 @@ module.exports = {
         if (event === undefined){
             event = 'chek_sources';
         }
-        this.r['save']();
         this.event = event;
         this[event]();
     },
