@@ -3,6 +3,7 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     run: function(spawn){
+        console.log('Rooms.run()');
         this.event = Memory.rooms.event;
         if (this.event === undefined){
             this.event = ['chek_sources'];
