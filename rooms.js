@@ -1,17 +1,15 @@
 module.exports = {
     /**
-     * @param {StructureSpawn} spawn
+     * @param {StructureSpawn[]} spawn
      */
     run: function(spawn){
         this.spawn = spawn;
         
-        this.event = Memory.rooms.event;
-        console.log('Rooms.run(1)'+ typeof(this.event));
+        this.event = spawn[0].room.memory.event;
+        console.log('Rooms.run(1');
         if (this.event === undefined){
-            this.event = new Array("chek_sources");
-            console.log('Rooms.run(2)'+typeof(this.event));
+            this.event = "chek_sources";
         }
-        //this.event = Memory.rooms.event;
 
         this[this.event[0]]();
         //this['save']();
@@ -23,7 +21,6 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     chek_sources: function(){
-        delete Memory.rooms.sources;
         const spawn = this.spawn;
         let arr_spawn = [];
         for (let name in spawn){
