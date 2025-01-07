@@ -1,4 +1,4 @@
-class manger {
+exports.manger = class {
     /**
      * @param {StructureSpawn} spawn
      */
@@ -14,6 +14,16 @@ class manger {
 }
 
 
+
+
+
+
+
+
+
+
+
+/*
 module.exports = {
     man: new manger()
-}
+}*/
