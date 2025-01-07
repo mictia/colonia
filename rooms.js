@@ -3,12 +3,11 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     run: function(spawn){
-        this.spawn = spawn[0];
         this.event = Memory.rooms.event;
         if (this.event === undefined){
             this.event = ['chek_sources'];
         }
-        this[this.event[0]]();
+        this[this.event[0]](spawn['Spawn1']);
         //this['save']();
     },
     save: function(){
