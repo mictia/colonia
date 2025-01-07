@@ -16,7 +16,8 @@ module.exports = {
     },
     r:{
         save: function(){
-            Memory.rooms.event = this.event;
+            console.log("Save");
+            //Memory.rooms.event = this.event;
         },
 
     },
