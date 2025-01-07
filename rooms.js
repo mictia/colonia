@@ -8,7 +8,7 @@ module.exports = {
         if (!Memory.rooms.event){
             this.event = ['chek_sources'];
         }
-        this.event = Memory.rooms.event;
+        //this.event = Memory.rooms.event;
 
         this[this.event[0]]();
         //this['save']();
