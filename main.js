@@ -1,6 +1,6 @@
 //var MN = require('manger');
 const mc = require('manger');
-const sp = require('spawn');
+const sp = require('rooms');
 
 module.exports.loop = function () {
     console.log("START");
