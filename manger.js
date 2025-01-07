@@ -11,6 +11,7 @@ module.exports = {
     },
     harvester: function(){
         console.log('harvester');
+        //Memory.rooms
     },
     builder: function(){
 
