@@ -5,6 +5,7 @@ module.exports = {
     run: function(spawn){
         this.spawn = spawn;
         console.log('Rooms.run()');
+        Memory.rooms ={};
         this.event = Memory.rooms.event;
         if (this.event === undefined){
             this.event = ['chek_sources'];
