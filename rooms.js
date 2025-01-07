@@ -20,7 +20,6 @@ module.exports = {
      */
     chek_sources: function(){
         const spawn = this.spawn;
-        const sourc = spawn.room.find(FIND_SOURCES_ACTIVE);
         let arr_spawn = [];
         for (let name in spawn){
             Memory.spawns = {name: {id:spawn[name].id ,x:spawn[name].pos.x, y:spawn[name].pos.y}};
@@ -33,6 +32,7 @@ module.exports = {
         const position = [[-1,-1],[-1,0],[-1,1],
                           [0,-1],        [0,1],
                           [1,-1], [1,0], [1,1]];
+        const sourc = arr_spawn[0].room.find(FIND_SOURCES_ACTIVE);
         for (let name in sourc){
             name_sources = "sources-"+i;
             
