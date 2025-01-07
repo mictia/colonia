@@ -5,13 +5,13 @@ module.exports = {
     run: function(spawn){
         this.spawn = spawn;
         
-        let event = spawn['Spawn1'].room.memory.event;
+        let event = Memory.rooms.event;
         console.log('Rooms.run()');
         if (event === undefined){
             event = 'chek_sources';
         }
         this.event = event;
-        this.[event]();
+        this[event]();
     },
     save: function(){
         Memory.rooms.event = this.event;
