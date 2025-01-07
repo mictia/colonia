@@ -5,6 +5,7 @@ module.exports = {
     run: function(spawn){
         debugger;
         this.spawn = spawn;
+        this.event = '';
         this.event = Memory.rooms.event;
         console.log('Rooms.run()');
         if (this.event === undefined){
