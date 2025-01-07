@@ -1,10 +1,10 @@
 //var MN = require('manger');
-const { manger } = require('./manger');
+const {mc} = require('./manger');
 
 module.exports.loop = function () {
-    /**
-     * @param {manger} nm
-     */
-    let nm = new MN.manger(Game.spawns['Spawn1']);
-    
+
+    for (let name in Game.creeps){
+        mc.run(Game.creeps[name]);
+    }
+        
 }

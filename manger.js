@@ -1,14 +1,25 @@
-exports.manger = class {
+exports.manger = {
     /**
-     * @param {StructureSpawn} spawn
+     * @param {Creep} creeps
      */
+    run(creeps){
+        this.role = creeps.memory.role;
+        if ((this.steck = creeps.memory.steck) === undefined){
+            this.steck = [this.role];
+        }
+        this[this.steck[0]]();
+    },
+    harvester(){
+        console.log('harvester');
+    },
+    builder(){
 
+    },
+    transport(){
 
-    constructor(spawn){
-        console.log(spawn);
-    }
-    mov(params) {
-        
+    },
+    build_Contr(){
+
     }
 
 }
