@@ -8,7 +8,7 @@ module.exports = {
         this.event = spawn['Spawn1'].room.memory.event;
         console.log('Rooms.run()');
         if (this.event === undefined){
-            this.event = "chek_sources";
+            this.event = 'chek_sources';
         }
 
         this[this.event[0]]();
