@@ -8,7 +8,7 @@ module.exports = {
         this.event = Memory.rooms.event;
         console.log('Rooms.run(1)'+ typeof(this.event));
         if (this.event === undefined){
-            this.event = new Array('chek_sources');
+            this.event = new Array("chek_sources");
             console.log('Rooms.run(2)'+typeof(this.event));
         }
         //this.event = Memory.rooms.event;
