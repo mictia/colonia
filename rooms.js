@@ -7,6 +7,7 @@ module.exports = {
         console.log('Rooms.run()');
         Memory.rooms ={};
         this.event = Memory.rooms.event;
+        console.log(this.event);
         if (this.event === undefined || this.event === null){
             this.event = ['chek_sources'];
         }
