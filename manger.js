@@ -1,24 +1,24 @@
-exports.manger = {
+module.exports = {
     /**
      * @param {Creep} creeps
      */
-    run(creeps){
+    run: function(creeps){
         this.role = creeps.memory.role;
         if ((this.steck = creeps.memory.steck) === undefined){
             this.steck = [this.role];
         }
         this[this.steck[0]]();
     },
-    harvester(){
+    harvester: function(){
         console.log('harvester');
     },
-    builder(){
+    builder: function(){
 
     },
-    transport(){
+    transport:function(){
 
     },
-    build_Contr(){
+    build_Contr:function(){
 
     }
 
