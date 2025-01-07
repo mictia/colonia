@@ -14,13 +14,11 @@ module.exports = {
         this.event = event;
         this[event]();
     },
-    r:{
-        save: function(){
-            console.log("Save");
-            //Memory.rooms.event = this.event;
-        },
-
+    save: function(){
+        //Memory.rooms.event = this.event;
     },
+
+ 
         /**
      * @param {StructureSpawn} spawn
      */
@@ -28,7 +26,7 @@ module.exports = {
         const spawn = this.spawn;
         let arr_spawn = [];
         for (let name in spawn){
-            Memory.spawns = {name: {id:spawn[name].id ,x:spawn[name].pos.x, y:spawn[name].pos.y}};
+            spawn[name].memory = {name: {id:spawn[name].id ,x:spawn[name].pos.x, y:spawn[name].pos.y}};
             arr_spawn.unshift(spawn[name]);
         }
         let i = 0;
@@ -45,7 +43,7 @@ module.exports = {
             for (let s = 0; s<position.length; s++){
                 r+=getTerr(terrain,sourc[name].pos.x+position[s][0], sourc[name].pos.y+position[s][1]);
             }
-            Memory.rooms.sources = {[name_sources]: {id: sourc[name].id,emptiness:r}};
+            this.sources.push({[name_sources]: {id: sourc[name].id,emptiness:r}});
             r = 0;
             i++;
         }
@@ -62,6 +60,8 @@ module.exports = {
                     break;
             }
         }
+        arr_spawn[0].room.memory = this.sources;
+        arr_spawn[0].room.memory.event = 'timeOut';
     },
     timeOut: function(){
 
