@@ -59,7 +59,7 @@ module.exports = {
                     break;
             }
         }
-        arr_spawn[0].room.memory = this.sources;
+        arr_spawn[0].room.memory.sources = this.sources;
         arr_spawn[0].room.memory.event = 'timeOut';
         console.log(this.sources);
     },
