@@ -6,10 +6,11 @@ module.exports = {
         this.spawn = spawn;
         
         let event = Memory.rooms.event;
-        console.log('Rooms.run()'+this.name);
+        console.log('Rooms.run()');
         if (event === undefined){
             event = 'chek_sources';
         }
+        this['save']();
         this.event = event;
         this[event]();
     },
