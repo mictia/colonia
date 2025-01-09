@@ -8,9 +8,9 @@ module.exports = {
     run: function(spawn){
         if(this.mem === undefined){
             this.mem = mem;
-            this.mem.chek(spawn);
+            this.mem.chek(spawn.name);
         }
-        console.log(this.mem.getSteck(spawn.name));
+        console.log(this.mem.getSteck());
     },
     /**
      * @param {StructureSpawn} spawn
@@ -84,7 +84,7 @@ const mem = {
         }
     },
     getSteck:function(name){
-        return this.mem[name].steck[3];
+        return this.mem[name].steck[0];
     },
     getMemorySpawn:function(){
         return this.spawn;
