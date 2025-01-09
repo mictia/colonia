@@ -139,7 +139,7 @@ const mem = {
             this.spawn = {};
             let name = spawn.name;
             for (let i in spawn.memory){
-                this.spawn = {[name]:{i:spawn.memory[i]}};
+                this.spawn = {[name]:{[i]:spawn.memory[i]}};
             }
             this.count = 0;
             console.log("New memory spawn");
