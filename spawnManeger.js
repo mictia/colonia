@@ -1,4 +1,3 @@
-//@ts-check
 
 module.exports = {
 
@@ -62,8 +61,13 @@ const creepBuild = {
     }
 }
 
+/**
+ * @this mem
+ * @this gMem
+*/
 const mem = {
     count: undefined,
+    /**@param {StructureSpawn} spawn*/
     chek: function(spawn) {
         const steck = spawn.memory.steck;
         if (steck != undefined){
