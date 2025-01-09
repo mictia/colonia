@@ -2,9 +2,13 @@
      * @param {saveSteck} mSteck 
      */
 
+const { functions } = require("lodash");
+const { serialize } = require("v8");
+
 module.exports = {
-    mgmg: function(){
-        return new saveSteck("ololo");
+    
+    init: function(){
+        return mem;
     },
     /**
      * @param {StructureSpawn} spawn
@@ -135,55 +139,18 @@ const creepBuild = {
     }
 }
 
-
-
-class saveSteck {
-    #steck
-    /**
-     * @param {Array[[]]} steck
-     * @coment "Иницилизация стека"
-     */
-    constructor(steck) {
-        if (Array.isArray(steck)){
-            this.steck = steck;
-        } else {
-            this.steck = undefined;
+mem = {
+    count: undefined,
+    chek: function(spawn) {
+        if(count === undefined){
+            for (let i in spawn.memory){
+                this.spawn[spawn.name] = spawn.memory[i];
+            }
+            this.count = 0;
+            console.log("New memory spawn");
         }
-    }
-    /**
-     * @param {Array[[]]} event
-     * @coment "добавляем элементы в конец"
-     */
-    set Push(event){
-        this.steck.push(event)
-    }
-    /**
-     * @param {Array[[]]} event
-     * @coment "добавляем элементы в начало"
-     */
-    set Unshift(event) {
-        this.steck.unshift(event)
-    }
-    /**
-     * @return {Array[]} event
-     * @coment "Удаляет последний элемент из массива "
-     */
-    get Pop(){
-        return this.steck.pop();
-    }
-    /**
-     * @return {Array[]} event
-     * @coment "Удаляет первый элемент из массива "
-     */
-    get getShift(){
-        return this.steck.shift();
-    }
-    /**
-     * @return {Array[]} event
-     * @coment "Возвращает весь стек массива "
-     */
-    get Steck(){
-        return this.steck;
+    },
+    getMemorySpawn(){
+        return this.spawn;
     }
 }
-
