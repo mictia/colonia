@@ -6,7 +6,7 @@ const { functions } = require("lodash");
 const { serialize } = require("v8");
 
 module.exports = {
-    
+
     init: function(){
         return mem;
     },
@@ -139,7 +139,7 @@ const creepBuild = {
     }
 }
 
-mem = {
+const mem = {
     count: undefined,
     chek: function(spawn) {
         if(count === undefined){
