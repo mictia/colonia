@@ -136,15 +136,16 @@ const mem = {
     count: undefined,
     chek: function(spawn) {
         if(this.count === undefined){
-            this.spawn = [];
+            this.spawn = {spawn.name: []};
             for (let i in spawn.memory){
-                this.spawn.push(spawn.memory[i]);
+                this.spawn.push({spawn.memory[i]});
             }
             this.count = 0;
             console.log("New memory spawn");
         }
     },
     getMemorySpawn(){
+        this.count++;
         return this.spawn;
     }
 }
