@@ -1,6 +1,7 @@
     /**
      * @param {saveSteck} mSteck 
      */
+/*
 module.exports = {
     
     /**
@@ -132,7 +133,7 @@ const creepBuild = {
     }
 }
 
-
+*/
 
 export class saveSteck {
     #steck
