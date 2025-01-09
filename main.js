@@ -11,9 +11,12 @@ module.exports.loop = function () {
     }
     let r = new save.init();
     r.chek(Game.spawns['Spawn1']);
-    console.log(sys = r.getMemorySpawn().spawn1);
+    console.log(sys = r.getMemorySpawn());
     for (let n in sys){
-        console.log(n+' '+sys[n]+'count: '+r.count);
+        console.log(n+' count: '+r.count);
+        for (let e in sys[n]){
+            console.log(e+' type: '+sys[n][e]);
+        }
     }
     /*
     for (let name in Game.creeps){
