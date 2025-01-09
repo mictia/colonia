@@ -84,7 +84,7 @@ const mem = {
         }
     },
     getSteck:function(name){
-        return this.mem[name].steck[0];
+        return this.mem[name].steck[3];
     },
     getMemorySpawn:function(){
         return this.spawn;
