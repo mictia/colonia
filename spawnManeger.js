@@ -136,9 +136,10 @@ const mem = {
     count: undefined,
     chek: function(spawn) {
         if(this.count === undefined){
-            this.spawn = {spawn.name: []};
+            this.spawn = {};
+            let name = spawn.name;
             for (let i in spawn.memory){
-                this.spawn.push({spawn.memory[i]});
+                this.spawn = {[name]:spawn.memory[i]};
             }
             this.count = 0;
             console.log("New memory spawn");
