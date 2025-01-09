@@ -1,11 +1,23 @@
 //var MN = require('manger');
-const mc = require('manger');
-const sp = require('rooms');
+const creepManager = require('creepManeger');
+const spawnManeger = require('spawnManeger');
+const { saveSteck } = require('./spawnManeger');
+
+const stateSpawn = undefined;
 
 module.exports.loop = function () {
-    sp.run(Game.spawns);
-    for (let name in Game.creeps){
-        mc.run(Game.creeps[name]);
+    if (stateSpawn == undefined){
+
     }
-    console.log("END");
+    for (let name in Game.creeps){
+        creepManager.run(Game.creeps[name]);
+    }
+
+    for (let name in Game.spawns){
+        
+        if (spawnManeger.check(Game.spawns[name])){
+            spawnManeger.run(Game.spawns[name]);
+        }
+    }
 }
+

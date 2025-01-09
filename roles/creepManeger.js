@@ -10,20 +10,7 @@ module.exports = {
         }
         this[this.steck[0]]();
     },
-    harvester: function(){
-        console.log('harvester');
-        //Memory.rooms
-    },
-    builder: function(){
-
-    },
-    transport:function(){
-
-    },
-    build_Contr:function(){
-
-    }
-
+    
 }
 
 
