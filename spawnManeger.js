@@ -10,12 +10,13 @@ module.exports = {
             this.mem = mem;
             this.mem.chek(spawn);
         }
+        console.log(this.mem.getSteck(spawn.name));
     },
     /**
      * @param {StructureSpawn} spawn
      * @param {string} build
      */
-    spawnCreeps: function(spawn,type,varible){
+    spawnCreeps: function(spawn,type){
         const energiCap = spawn.room.energyCapacityAvailable;
         const energi = spawn.room.energyAvailable;
         let position;
@@ -40,37 +41,6 @@ module.exports = {
 
             return -3;
         }
-    },
- 
-    
-    /**
-     * @param {StructureSpawn} spawn
-     */
-    
-    chek_sources: function(spawn,q,w){
-        let sources;
-        const pos = spawn.pos;
-        const sourc = spawn.room.find(FIND_SOURCES_ACTIVE);
-        for (let name in sourc){
-            let count = 0;
-            spawn.room.lookAtArea(pos.y-1,pos.x-1,pos.y+1,pos.x+1).forEach(name=>{
-                if(name.type === 'terrain'){
-                    
-                        if((name.terrain === 'plain')||(name.terrain === 'swamp')){
-                            spawn.room.visual.circle(name.x,name.y,{fill: 'transparent', radius: 0.45, stroke: 'green'});
-                            count++;
-                        } else {
-                            spawn.room.visual.circle(name.x,name.y,{fill: 'transparent', radius: 0.45, stroke: 'red'})
-                        }
-
-                    }
-                });
-            sources.push({id: sourc[name].id,miner:0, emptiness:count, distenc:spawn.pos.getRangeTo(sourc[name].room)});
-        }
-
-        Memory.rooms.sources = this.sources;
-        this.steck = ['spawnCreeps','mainer',0];
-        return 0;
     },
 }
 
@@ -113,7 +83,60 @@ const mem = {
             }
         }
     },
+    getSteck:function(name){
+        return this.mem[name].steck[0];
+    },
     getMemorySpawn:function(){
         return this.spawn;
     },
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+
+    chek_sources: function(spawn,q,w){
+        let sources;
+        const pos = spawn.pos;
+        const sourc = spawn.room.find(FIND_SOURCES_ACTIVE);
+        for (let name in sourc){
+            let count = 0;
+            spawn.room.lookAtArea(pos.y-1,pos.x-1,pos.y+1,pos.x+1).forEach(name=>{
+                if(name.type === 'terrain'){
+                    
+                        if((name.terrain === 'plain')||(name.terrain === 'swamp')){
+                            spawn.room.visual.circle(name.x,name.y,{fill: 'transparent', radius: 0.45, stroke: 'green'});
+                            count++;
+                        } else {
+                            spawn.room.visual.circle(name.x,name.y,{fill: 'transparent', radius: 0.45, stroke: 'red'})
+                        }
+
+                    }
+                });
+            sources.push({id: sourc[name].id,miner:0, emptiness:count, distenc:spawn.pos.getRangeTo(sourc[name].room)});
+        }
+
+        Memory.rooms.sources = this.sources;
+        this.steck = ['spawnCreeps','mainer',0];
+        return 0;
+    },
+    
+*/
