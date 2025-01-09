@@ -7,6 +7,7 @@ module.exports = {
      */
     run: function(spawn){
         if(this.mem === undefined){
+            this.mem = mem;
             this.mem.chek(spawn);
         }
     },
