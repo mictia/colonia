@@ -3,7 +3,7 @@
 let save = require("spawnManeger");
 
 let stateSpawn = undefined;
-//@ts-check
+
 module.exports.loop = function () {
     
     if(stateSpawn === undefined){

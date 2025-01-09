@@ -137,7 +137,7 @@ const mem = {
     chek: function(spawn) {
         if(this.count === undefined){
             for (let i in spawn.memory){
-                this.spawn[spawn.name] = spawn.memory[i];
+                this.spawn.push(spawn.memory[i]);
             }
             this.count = 0;
             console.log("New memory spawn");
