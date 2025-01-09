@@ -10,7 +10,7 @@ module.exports = {
             this.mem = mem;
             this.mem.chek(spawn);
         }
-        console.log(this.mem.getSteck('fdfd'));
+        console.log(this.mem.getSteck('Spawn1'));
     },
     /**
      * @param {StructureSpawn} spawn
