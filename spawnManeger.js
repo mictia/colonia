@@ -3,7 +3,9 @@
      */
 
 module.exports = {
-    
+    mgmg: function(){
+        return new saveSteck("ololo");
+    },
     /**
      * @param {StructureSpawn} spawn
      */
