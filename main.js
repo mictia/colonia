@@ -11,7 +11,7 @@ module.exports.loop = function () {
     }
     let r = new save.init();
     r.chek(Game.spawns['Spawn1']);
-    console.log(sys = r.getMemorySpawn());
+    console.log(sys = r.getMemorySpawn().spawn1);
     for (let n in sys){
         console.log(n+' '+sys[n]+'count: '+r.count);
     }
