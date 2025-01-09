@@ -1,7 +1,7 @@
     /**
      * @param {saveSteck} mSteck 
      */
-/*
+
 module.exports = {
     
     /**
@@ -133,9 +133,9 @@ const creepBuild = {
     }
 }
 
-*/
 
-export class saveSteck {
+
+class saveSteck {
     #steck
     /**
      * @param {Array[[]]} steck

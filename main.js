@@ -1,6 +1,6 @@
 //var MN = require('manger');
 //const creepManager = require('./roles/creepManeger');
-import { saveSteck }  from './structure/spawnManeger';
+let save = require("./spawnManeger.js");
 
 const stateSpawn = undefined;
 
