@@ -1,10 +1,3 @@
-    /**
-     * @param {saveSteck} mSteck 
-     */
-
-const { functions } = require("lodash");
-const { serialize } = require("v8");
-
 module.exports = {
 
     init: function(){
@@ -142,7 +135,7 @@ const creepBuild = {
 const mem = {
     count: undefined,
     chek: function(spawn) {
-        if(count === undefined){
+        if(this.count === undefined){
             for (let i in spawn.memory){
                 this.spawn[spawn.name] = spawn.memory[i];
             }

@@ -10,7 +10,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].memory = {role:'OLOLO'};
     }
     let r = new save.init();
-    r.chek();
+    r.chek(Game.spawns['Spawn1']);
     console.log(r.getMemorySpawn());
     /*
     for (let name in Game.creeps){
