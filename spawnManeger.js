@@ -84,6 +84,9 @@ const mem = {
         }
     },
     getSteck:function(name){
+        if (this.mem[name] === undefined){
+            return undefined;
+        }
         return this.mem[name].steck[0];
     },
     getMemorySpawn:function(){
