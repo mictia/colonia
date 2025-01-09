@@ -1,55 +1,14 @@
+//@ts-check
+
 module.exports = {
 
-    init: function(){
-        return mem;
-    },
     /**
      * @param {StructureSpawn} spawn
      */
     run: function(spawn){
-        this.steck = undefined;
-        /**@param {Array} steck */
-        let steck = spawn.memory.steck;
-        if (steck[0][0] === null || steck[0][0] === undefined){
-            console.log('Error steck null and undefined');
-            return ;
+        if(this.mem === undefined){
+            this.mem.chek(spawn);
         }
-        const code = this[steck[0][0]](spawn, steck[0][1], steck[0][2]);
-        /**
-         *  0:Запись в конец стека
-         * -1:Запись в начало стека
-         * -2: загрузка в начало стека вызова действия
-         */
-        switch(code){
-            case 0:
-                steck.push(this.steck);
-                spawn.memory.steck = steck;
-                return ;
-            break;
-            case -1:
-                steck.unshift(this.steck);
-                spawn.memory.steck = steck;
-            break;
-            case -2:
-                steck.unshift(this.steck);
-                spawn.memory.steck = steck;
-            break;
-        }
-    },
-    check: function(spawn){
-        const steck = spawn.memory.steck;
-        if (steck != undefined){
-            return true;
-        } else {
-            spawn.memory.steck = [];
-            const gEvent = Memory.spawns.globalEvent;
-            if(gEvent === undefined){
-                spawn.memory.steck = [['chek_sources',0,0]];
-                Memory.spawns.globalEvent = [];
-                return false;
-            }
-        }
-        return false;
     },
     /**
      * @param {StructureSpawn} spawn
@@ -135,18 +94,25 @@ const creepBuild = {
 const mem = {
     count: undefined,
     chek: function(spawn) {
-        if(this.count === undefined){
-            this.spawn = {};
+        const steck = spawn.memory.steck;
+        if (steck != undefined){
             let name = spawn.name;
             for (let i in spawn.memory){
-                this.spawn = {[name]:{[i]:spawn.memory[i]}};
+                this.mem = {[name]:{[i]:spawn.memory[i]}};
             }
+            this.gMem = Memory.spawns.globalEvent
             this.count = 0;
             console.log("New memory spawn");
+        } else {
+            spawn.memory.steck = [];
+            const gEvent = Memory.spawns.globalEvent;
+            if(gEvent === undefined){
+                spawn.memory.steck = [['spawnCreep','miner']];
+                Memory.spawns.globalEvent = [];
+            }
         }
     },
-    getMemorySpawn(){
-        this.count++;
+    getMemorySpawn:function(){
         return this.spawn;
-    }
+    },
 }
