@@ -75,7 +75,7 @@ function mem (spawn) {
         spawn.memory = {steck:[[]]};
         const gEvent = Memory.spawns.globalEvent;
         if(gEvent === undefined){
-            spawn.memory.steck = [['spawnCreeps','miner',300]];
+            spawn.memory.steck = [['spawnCreeps','mainer',300]];
             Memory.spawns.globalEvent = [];
             console.log("New memory spawn");
         }
