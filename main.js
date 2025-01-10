@@ -40,12 +40,15 @@ module.exports.loop = function () {
 /**
  * @constructor
  * @property {Object} this.roomSpawn
- * @property {Object} this.global
+ * @property {Object} this.globalSpawn
+ * @property {Object} this.roomCreeps
+ * @property {Object} this.steckManeger
  * @this Maneger
  */
 function Maneger(){
     this.roomSpawn = {};
     this.globalSpawn = {};
+    this.roomCreeps = {};
     this.steckManeger = Memory.rooms.maneger;
     if(this.steckManeger === undefined){
         Memory.rooms = {maneger:{}};
@@ -60,6 +63,12 @@ Maneger.prototype.entrySpawn = function (param) {
         return;
     }
     this.roomSpawn = param;
+}
+Maneger.prototype.entryCreep = function (param) {
+    if((param === undefined)||(param === null)){
+        return;
+    }
+    this.roomCreeps = param;
 }
 Maneger.prototype.analitic = function(){
 

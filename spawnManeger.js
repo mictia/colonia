@@ -10,6 +10,8 @@ module.exports = {
             this.mem.chek(spawn);
             room = {[spawn.room.name]:spawn.name};
         }
+        
+        FSM.action[]
         return room;
     },
 }
@@ -33,7 +35,7 @@ const creepBuild = {
 }
 
 /**
- * @property {Array} this.mem
+ * @property {Array} this.mem 
  * @property {Array} this.gMem
  * @property {Number} this.count
 */
@@ -49,13 +51,13 @@ const mem = {
             }
             this.gMem = Memory.spawns.globalEvent
             this.count = 0;
-            console.log("New memory spawn");
         } else {
             spawn.memory.steck = [];
             const gEvent = Memory.spawns.globalEvent;
             if(gEvent === undefined){
                 spawn.memory.steck = [['spawnCreep','miner']];
                 Memory.spawns.globalEvent = [];
+                console.log("New memory spawn");
             }
         }
     },
@@ -79,18 +81,7 @@ const FSM = {
          * @param {string} build
          */
         spawnCreeps: function(spawn,type){
-            const energiCap = spawn.room.energyCapacityAvailable;
             const energi = spawn.room.energyAvailable;
-            let position;
-            for (let name in creepBuild){
-                if (Number(name)<=energiCap){
-                    position = Number(name);
-                }
-            }
-            if (position >= energi){
-                this.steck = ['setTime', Game.time+10,0];
-                return -1;
-            }
             const error = spawn.spawnCreep(
                 creepBuild[position][type].body,
                 creepBuild[position][type].name+Game.time,
