@@ -33,7 +33,7 @@ module.exports = {
             room = {[spawn.room.name]:spawn.name};
         }
         
-        const steck = this.mem.getSteckLocal(spawn.name);
+        const steck = this.mem.getSteckLocal(spawn);
         if(steck === undefined){
             return room;
         }
@@ -112,7 +112,7 @@ const FSM = {
          * @param {string} position
          */
         spawnCreeps: function(spawn,type,position){
-            flagsconsole ? console.log('spawnCreeps'):0;
+            flagsconsole ? console.log('FSM->action->spawnCreeps'):0;
             const energi = spawn.room.energyAvailable;
             const body = creepBuild[position][type].body;
             const name = creepBuild[position][type].name+Game.time;
