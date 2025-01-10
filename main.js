@@ -18,6 +18,7 @@ module.exports.loop = function () {
     if(maneger === undefined){
         maneger = new Maneger();
     }
+    console.log('start Maneger');
 
     //Проходит по спавну и возращает объект принадлежности (название комнаты:имя спавна) 
     for (let name in Game.spawns){
