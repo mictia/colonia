@@ -37,7 +37,7 @@ module.exports = {
         if(steck === undefined){
             return room;
         }
-        //console.log(steck);
+        console.log(steck);
         let error = FSM.action[steck[0]](spawn,steck[1],steck[3]);
         if(error === 0){
             this.mem.shiftLocal(spawn.name);
