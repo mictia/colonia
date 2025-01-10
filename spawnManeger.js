@@ -85,7 +85,7 @@ function mem (spawn) {
 mem.prototype.getSteckLocal = function(spawn){
     flagsconsole ? console.log('getSteckLocal '+spawn.name):0;
     let events = this.mem[spawn.name].steck[0] === undefined
-    if( (events === undefined)||(events[0]===undefined)){
+    if( (events === undefined)||(events===null)){
         return undefined;
     }
     return this.mem[spawn.name].steck[0];
