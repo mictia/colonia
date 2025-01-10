@@ -112,11 +112,11 @@ const FSM = {
          * @param {string} position
          */
         spawnCreeps: function(spawn,type,position){
-            flagsconsole ? console.log('FSM->action->spawnCreeps'):0;
             const energi = spawn.room.energyAvailable;
             const body = creepBuild[position][type].body;
             const name = creepBuild[position][type].name+Game.time;
-            const memory = creepBuild[position][type].mem;
+            const memory = creepBuild[position][type].mem.memory;
+            flagsconsole ? console.log('FSM->action->spawnCreeps-${body} ${name} ${memory}'):0;
             if(position<=energi){
                 const error = spawn.spawnCreep(body,name,memory);
                 return error;
