@@ -16,7 +16,7 @@ module.exports.loop = function () {
      * В конце каждого цикла сохраняет в Memory.room.maneger масивы данных
      */
     flagsconsole ? console.log('start loop'):0;
-    
+
     if(maneger === undefined){
         maneger = new Maneger();
     }
