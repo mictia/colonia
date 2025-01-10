@@ -21,7 +21,9 @@ const creepBuild = {
 module.exports = {
     /**
      * @param {StructureSpawn} spawn
+     * ['spawnCreep','miner',300]
     */
+
    run: function(spawn){
     flagsconsole ? console.log('run'):0;
        let room;
@@ -32,6 +34,7 @@ module.exports = {
         }
         
         const steck = this.mem.getSteckLocal(spawn.name);
+        console.log(steck);
         let error = FSM.action[steck[0]](spawn,steck[1],steck[3]);
         if(error === 0){
             this.mem.shiftLocal(spawn.name);
@@ -50,6 +53,7 @@ module.exports = {
  * @property {Number} this.count
  * @param {StructureSpawn} spawn
  * @this mem
+ * ['spawnCreep','miner',300]
 */
 function mem (spawn) {
     flagsconsole ? console.log('mem'):0;
