@@ -41,6 +41,7 @@ module.exports = {
         let error = FSM.action[steck[0]](spawn,steck[1],steck[2]);
         if(error === 0){
             this.mem.shiftLocal(spawn.name);
+            return room;
         }
 
         this.mem.saveSteckLocal(spawn);
@@ -74,7 +75,7 @@ function mem (spawn) {
         spawn.memory = {steck:[[]]};
         const gEvent = Memory.spawns.globalEvent;
         if(gEvent === undefined){
-            spawn.memory.steck = [['spawnCreep','miner',300]];
+            spawn.memory.steck = [['spawnCreeps','miner',300]];
             Memory.spawns.globalEvent = [];
             console.log("New memory spawn");
         }
