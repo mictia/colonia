@@ -11,7 +11,7 @@ module.exports = {
             room = {[spawn.room.name]:spawn.name};
         }
         
-        FSM.action[]
+        
         return room;
     },
 }
@@ -55,7 +55,7 @@ const mem = {
             spawn.memory.steck = [];
             const gEvent = Memory.spawns.globalEvent;
             if(gEvent === undefined){
-                spawn.memory.steck = [['spawnCreep','miner']];
+                spawn.memory.steck = [['spawnCreep','miner',300]];
                 Memory.spawns.globalEvent = [];
                 console.log("New memory spawn");
             }
