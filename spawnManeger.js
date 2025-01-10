@@ -118,7 +118,7 @@ const FSM = {
             const name = creepBuild[position][type].name+Game.time;
             const types = creepBuild[position][type].mem;
             if(position<=energi){
-                const error = spawn.spawnCreep(body,name,type);
+                const error = spawn.spawnCreep(body,name,types);
                 return error;
             }
             return -6;
