@@ -71,7 +71,7 @@ function mem (spawn) {
         this.count = 0;
     } else {
         flagsconsole ? console.log('steck != undefined else'):0;
-        spawn.memory.steck = [];
+        spawn.memory.steck = [[]];
         const gEvent = Memory.spawns.globalEvent;
         if(gEvent === undefined){
             spawn.memory.steck = [['spawnCreep','miner',300]];
