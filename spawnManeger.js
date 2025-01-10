@@ -27,7 +27,6 @@ module.exports = {
        let room;
        if(this.mem === undefined){
             this.mem = new mem(spawn);
-            this.mem.chek(spawn);
             room = {[spawn.room.name]:spawn.name};
         }
         console.log(room);
