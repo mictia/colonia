@@ -46,6 +46,10 @@ module.exports.loop = function () {
 function Maneger(){
     this.roomSpawn = {};
     this.globalSpawn = {};
+    this.steckManeger = Memory.rooms.maneger;
+    if(this.steckManeger === undefined){
+        Memory.rooms = {maneger:{}};
+    }
 }
 /** Сохраняет обьект в память.
  * @function
