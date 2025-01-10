@@ -1,45 +1,16 @@
 
 module.exports = {
-
     /**
      * @param {StructureSpawn} spawn
      */
     run: function(spawn){
+        let room;
         if(this.mem === undefined){
             this.mem = mem;
             this.mem.chek(spawn);
+            room = {[spawn.room.name]:spawn.name};
         }
-        console.log(this.mem.getSteck('Spawn1'));
-    },
-    /**
-     * @param {StructureSpawn} spawn
-     * @param {string} build
-     */
-    spawnCreeps: function(spawn,type){
-        const energiCap = spawn.room.energyCapacityAvailable;
-        const energi = spawn.room.energyAvailable;
-        let position;
-        for (let name in creepBuild){
-            if (Number(name)<=energiCap){
-                position = Number(name);
-            }
-        }
-        if (position >= energi){
-            this.steck = ['setTime', Game.time+10,0];
-            return -1;
-        }
-        const error = spawn.spawnCreep(
-            creepBuild[position][type].body,
-            creepBuild[position][type].name+Game.time,
-            creepBuild[position][type].mem);
-        if(error == 0){
-            if(type === 'mainer'){
-                
-            }
-        } else {
-
-            return -3;
-        }
+        return room;
     },
 }
 
@@ -62,8 +33,9 @@ const creepBuild = {
 }
 
 /**
- * @this mem
- * @this gMem
+ * @property {Array} this.mem
+ * @property {Array} this.gMem
+ * @property {Number} this.count
 */
 const mem = {
     count: undefined,
@@ -87,19 +59,57 @@ const mem = {
             }
         }
     },
+    /**
+     * @param {string} name
+     * @returns {Array}
+    */
     getSteck:function(name){
         if (this.mem[name] === undefined){
             return undefined;
         }
         return this.mem[name].steck[0];
     },
-    getMemorySpawn:function(){
-        return this.spawn;
-    },
 }
 
 
+const FSM = {
+    action: {
+        /**
+         * @param {StructureSpawn} spawn
+         * @param {string} build
+         */
+        spawnCreeps: function(spawn,type){
+            const energiCap = spawn.room.energyCapacityAvailable;
+            const energi = spawn.room.energyAvailable;
+            let position;
+            for (let name in creepBuild){
+                if (Number(name)<=energiCap){
+                    position = Number(name);
+                }
+            }
+            if (position >= energi){
+                this.steck = ['setTime', Game.time+10,0];
+                return -1;
+            }
+            const error = spawn.spawnCreep(
+                creepBuild[position][type].body,
+                creepBuild[position][type].name+Game.time,
+                creepBuild[position][type].mem);
+            if(error == 0){
+                if(type === 'mainer'){
+                    
+                }
+            } else {
+    
+                return -3;
+            }
+        },
+    },
+    condition: {
 
+    }
+
+}
 
 
 
