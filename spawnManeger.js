@@ -119,6 +119,7 @@ const FSM = {
             flagsconsole ? console.log('FSM->action->spawnCreeps'):0;
             const energi = spawn.room.energyAvailable;
             const bodys = creepBuild[position][type].body;
+            console.log(bodys);
             const name = creepBuild[position][type].name+Game.time;
             const memory = creepBuild[position][type].mem;
             if(position<=energi){
