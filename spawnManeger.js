@@ -84,11 +84,11 @@ function mem (spawn) {
 
 mem.prototype.getSteckLocal = function(spawn){
     flagsconsole ? console.log('getSteckLocal '+spawn.name):0;
-    let events = this.mem[spawn.name].steck[0] === undefined
+    let events = this.mem[spawn.name].steck[0];
     if( (events === undefined)||(events===null)){
         return undefined;
     }
-    return this.mem[spawn.name].steck[0];
+    return events;
 }
 mem.prototype.shiftLocal = function(spawn){
     flagsconsole ? console.log('shiftLocal '+spawn.name):0;
@@ -119,7 +119,6 @@ const FSM = {
             flagsconsole ? console.log('FSM->action->spawnCreeps'):0;
             const energi = spawn.room.energyAvailable;
             const bodys = creepBuild[position][type].body;
-            console.log(bodys);
             const name = creepBuild[position][type].name+Game.time;
             const memory = creepBuild[position][type].mem;
             if(position<=energi){
