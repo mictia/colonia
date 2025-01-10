@@ -22,6 +22,7 @@ module.exports = {
      * @param {StructureSpawn} spawn
     */
    run: function(spawn){
+    console.log('run');
        let room;
        if(memory === undefined){
             memory = new mem(spawn);

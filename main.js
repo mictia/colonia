@@ -47,6 +47,7 @@ module.exports.loop = function () {
  * @this Maneger
  */
 function Maneger(){
+    console.log("init maneger");
     this.roomSpawn = {};
     this.globalSpawn = {};
     this.roomCreeps = {};
@@ -60,18 +61,20 @@ function Maneger(){
  * @param {Object} param 
  */
 Maneger.prototype.entrySpawn = function (param) {
+    console.log('spawn');
     if((param === undefined)||(param === null)){
         return;
     }
     this.roomSpawn = param;
 }
 Maneger.prototype.entryCreep = function (param) {
+    console.log('entryCreep');
     if((param === undefined)||(param === null)){
         return;
     }
     this.roomCreeps = param;
 }
 Maneger.prototype.analitic = function(){
-
+    console.log('analitic');
 }
 
