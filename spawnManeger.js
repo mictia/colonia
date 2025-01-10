@@ -81,13 +81,13 @@ function mem (spawn) {
 
 mem.prototype.getSteckLocal = function(spawn){
     flagsconsole ? console.log('getSteckLocal '+spawn.name):0;
+    console.log(this.mem[spawn.name].steck);
     if (this.mem[spawn.name] === undefined){
         return undefined;
     }
     if(this.mem[spawn.name].steck[0] === undefined){
         return undefined;
     }
-    console.log(this.mem[spawn.name].steck);
     return this.mem[spawn.name].steck[0];
 }
 mem.prototype.shiftLocal = function(spawn){
