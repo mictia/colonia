@@ -15,19 +15,19 @@ const creepBuild = {
         priority:{mainer:1,transport:1, build_controller:0},
     }
 }
-
+const memory = undefined;
 module.exports = {
     /**
      * @param {StructureSpawn} spawn
-     * @property {mem} mem
     */
    run: function(spawn){
        let room;
-       if(mem === undefined){
-            const mem = new mem(spawn);
-            mem.chek(spawn);
+       if(memory === undefined){
+            memory = new mem(spawn);
+            memory.chek(spawn);
             room = {[spawn.room.name]:spawn.name};
         }
+        console.log(room);
         return room;
     },
 }
