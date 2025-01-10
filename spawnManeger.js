@@ -38,7 +38,7 @@ module.exports = {
             return room;
         }
         console.log(steck);
-        let error = FSM.action[steck[0]](spawn,steck[1],steck[3]);
+        let error = FSM.action[steck[0]](spawn,steck[1],steck[2]);
         if(error === 0){
             this.mem.shiftLocal(spawn.name);
         }
@@ -112,11 +112,11 @@ const FSM = {
          * @param {string} position
          */
         spawnCreeps: function(spawn,type,position){
+            flagsconsole ? console.log('FSM->action->spawnCreeps'):0;
             const energi = spawn.room.energyAvailable;
             const body = creepBuild[position][type].body;
             const name = creepBuild[position][type].name+Game.time;
             const memory = creepBuild[position][type].mem.memory;
-            flagsconsole ? console.log('FSM->action->spawnCreeps-${body} ${name} ${memory}'):0;
             if(position<=energi){
                 const error = spawn.spawnCreep(body,name,memory);
                 return error;
