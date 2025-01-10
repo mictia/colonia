@@ -84,6 +84,9 @@ mem.prototype.getSteckLocal = function(spawn){
     if (this.mem[spawn.name] === undefined){
         return undefined;
     }
+    if(this.mem[spawn.name].steck[0] === undefined){
+        return undefined;
+    }
     return this.mem[spawn.name].steck[0];
 }
 mem.prototype.shiftLocal = function(spawn){
