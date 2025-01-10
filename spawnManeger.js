@@ -56,7 +56,7 @@ module.exports = {
  * ['spawnCreep','miner',300]
 */
 function mem (spawn) {
-    flagsconsole ? console.log('mem'):0;
+    flagsconsole ? console.log('constructor mem'):0;
     const steck = spawn.memory.steck;
     if (steck != undefined){
         let name = spawn.name;
@@ -75,23 +75,20 @@ function mem (spawn) {
         }
     }
 }
-/**
- * @param {string} name
- * @returns {Array}
-*/
-mem.prototype.getSteck = function(name){
-    flagsconsole ? console.log('getSteck '+name):0;
-    if (this.mem[name] === undefined){
+
+mem.prototype.getSteckLocal = function(spawn){
+    flagsconsole ? console.log('getSteckLocal '+spawn.name):0;
+    if (this.mem[spawn.name] === undefined){
         return undefined;
     }
-    return this.mem[name].steck[0];
+    return this.mem[spawn.name].steck[0];
 }
-mem.prototype.getSteckLocal = function(name){
-    flagsconsole ? console.log('getSteckLocal '+name):0;
-    if (this.mem[name] === undefined){
+mem.prototype.shiftLocal = function(spawn){
+    flagsconsole ? console.log('shiftLocal '+spawn.name):0;
+    if (this.mem[spawn.name] === undefined){
         return undefined;
     }
-    return this.mem[name].steck.shift();
+    return this.mem[spawn.name].steck.shift();
 }
 mem.prototype.saveSteckLocal = function(spawn){
     flagsconsole ? console.log('save '+spawn.name):0;
