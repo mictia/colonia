@@ -15,6 +15,7 @@ const creepBuild = {
         priority:{mainer:1,transport:1, build_controller:0},
     }
 }
+
 const memory = undefined;
 module.exports = {
     /**
