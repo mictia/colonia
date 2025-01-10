@@ -1,6 +1,6 @@
 //var MN = require('manger');
 //const creepManager = require('./roles/creepManeger');
-
+const flagsconsole = true;
 const SM = require("./spawnManeger");
 
 /**@type {Maneger} */
@@ -18,7 +18,8 @@ module.exports.loop = function () {
     if(maneger === undefined){
         maneger = new Maneger();
     }
-    console.log('start Maneger');
+    flagsconsole ? console.log('start Maneger'):0;
+    
 
     //Проходит по спавну и возращает объект принадлежности (название комнаты:имя спавна) 
     for (let name in Game.spawns){
@@ -47,7 +48,7 @@ module.exports.loop = function () {
  * @this Maneger
  */
 function Maneger(){
-    console.log("init maneger");
+    flagsconsole ? console.log('constructor Maneger'):0;
     this.roomSpawn = {};
     this.globalSpawn = {};
     this.roomCreeps = {};
@@ -61,20 +62,20 @@ function Maneger(){
  * @param {Object} param 
  */
 Maneger.prototype.entrySpawn = function (param) {
-    console.log('spawn');
+    flagsconsole ? console.log('entrySpawn'):0;
     if((param === undefined)||(param === null)){
         return;
     }
     this.roomSpawn = param;
 }
 Maneger.prototype.entryCreep = function (param) {
-    console.log('entryCreep');
+    flagsconsole ? console.log('entryCreep'):0;
     if((param === undefined)||(param === null)){
         return;
     }
     this.roomCreeps = param;
 }
 Maneger.prototype.analitic = function(){
-    console.log('analitic');
+    flagsconsole ? console.log('analitic'):0;
 }
 

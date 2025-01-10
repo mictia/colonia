@@ -1,3 +1,5 @@
+
+const flagsconsole = true;
 const creepBuild = {
     300: {
         mainer: {
@@ -21,7 +23,7 @@ module.exports = {
      * @param {StructureSpawn} spawn
     */
    run: function(spawn){
-    console.log('run');
+    flagsconsole ? console.log('run'):0;
        let room;
        if(memory === undefined){
             memory = new mem(spawn);
@@ -42,7 +44,8 @@ module.exports = {
  * @param {StructureSpawn} spawn
  * @this mem
 */
-const mem = function(spawn) {
+function mem (spawn) {
+    flagsconsole ? console.log('run'):0;
     const steck = spawn.memory.steck;
     if (steck != undefined){
         let name = spawn.name;
@@ -68,6 +71,7 @@ const mem = function(spawn) {
      * @returns {Array}
     */
     mem.prototype.getSteck = function(name){
+        flagsconsole ? console.log('getSteck'):0;
         if (this.mem[name] === undefined){
             return undefined;
         }
@@ -83,10 +87,11 @@ const FSM = {
          * @param {string} build
          */
         spawnCreeps: function(spawn,type,position){
+            flagsconsole ? console.log('spawnCreeps'):0;
             const energi = spawn.room.energyAvailable;
             const body = creepBuild[position][type].body;
             const name = creepBuild[position][type].name+Game.time;
-            const type = creepBuild[position][type].mem;
+            const types = creepBuild[position][type].mem;
             if(position<=energi){
                 const error = spawn.spawnCreep(body,name,type);
                 return error;

@@ -1,3 +1,6 @@
+const flagsconsole = true;
+
+
 module.exports = {
     /**
      * @param {Creep} creeps
