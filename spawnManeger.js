@@ -16,7 +16,6 @@ const creepBuild = {
     }
 }
 
-const memory = undefined;
 module.exports = {
     /**
      * @param {StructureSpawn} spawn
