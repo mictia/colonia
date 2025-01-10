@@ -31,11 +31,13 @@ module.exports = {
             room = {[spawn.room.name]:spawn.name};
         }
         
-        const steck = this.mem.getSteck(spawn.name);
+        const steck = this.mem.getSteckLocal(spawn.name);
         let error = FSM.action[steck[0]](spawn,steck[1],steck[3]);
         if(error === 0){
             this.mem.shiftLocal(spawn.name);
         }
+
+        this.mem.saveSteckLocal(spawn);
         return room;
     },
 }
@@ -74,20 +76,27 @@ function mem (spawn) {
  * @returns {Array}
 */
 mem.prototype.getSteck = function(name){
-    flagsconsole ? console.log('getSteck'):0;
+    flagsconsole ? console.log('getSteck '+name):0;
     if (this.mem[name] === undefined){
         return undefined;
     }
     return this.mem[name].steck[0];
 }
-mem.prototype.shiftLocal = function(name){
-    flagsconsole ? console.log('shiftLocal'):0;
+mem.prototype.getSteckLocal = function(name){
+    flagsconsole ? console.log('getSteckLocal '+name):0;
     if (this.mem[name] === undefined){
         return undefined;
     }
     return this.mem[name].steck.shift();
 }
-
+mem.prototype.saveSteckLocal = function(spawn){
+    flagsconsole ? console.log('save '+spawn.name):0;
+    if (spawn === undefined){
+        return undefined;
+    }
+    spawn.memory = this.mem[spawn.name].steck;
+    return true;
+}
 
 
 
