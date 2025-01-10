@@ -61,7 +61,7 @@ module.exports = {
 function mem (spawn) {
     flagsconsole ? console.log('constructor mem'):0;
     const steck = spawn.memory.steck;
-    if (steck != undefined){
+    if ((steck != undefined)||(steck != null)){
         flagsconsole ? console.log('steck != undefined'):0;
         let name = spawn.name;
         for (let i in spawn.memory){
