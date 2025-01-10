@@ -104,7 +104,7 @@ mem.prototype.saveSteckLocal = function(spawn){
     if (spawn === undefined){
         return undefined;
     }
-    spawn.memory = this.mem[spawn.name].steck;
+    spawn.memory = this.mem;
     return true;
 }
 
