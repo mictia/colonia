@@ -7,12 +7,13 @@ const SM = require("./spawnManeger");
 let maneger = undefined;
 
 module.exports.loop = function () {
+
     /**
-     * Проверка на сбор мусора со стророны сервера
-     * при первой интерации производит сбор информации и записывает в память
+     * Если сбор мусора со стророны сервера осуществился создаем новый Maneger
+     * при первой интерации производит сбор информации и записывает в память обьекта 
      * Пока сбор мусора не осуществлиться работа считывание с памяти прекращаеться
      * -- работает со своей внутренней памятью
-     * В конце цикла сохраняет в память масивы данных
+     * В конце каждого цикла сохраняет в Memory.room.maneger масивы данных
      */
     if(maneger === undefined){
         maneger = new Maneger();
@@ -51,6 +52,9 @@ function Maneger(){
  * @param {Object} param 
  */
 Maneger.prototype.entrySpawn = function (param) {
+    if((param === undefined)||(param === null)){
+        return;
+    }
     this.roomSpawn = param;
 }
 Maneger.prototype.analitic = function(){
