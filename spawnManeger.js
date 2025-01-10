@@ -26,10 +26,16 @@ module.exports = {
     flagsconsole ? console.log('run'):0;
        let room;
        if(this.mem === undefined){
+            /**@type {mem} */
             this.mem = new mem(spawn);
             room = {[spawn.room.name]:spawn.name};
         }
-        console.log(room);
+        
+        const steck = this.mem.getSteck(spawn.name);
+        let error = FSM.action[steck[0]](spawn,steck[1],steck[3]);
+        if(error === 0){
+            this.mem.shiftLocal(spawn.name);
+        }
         return room;
     },
 }
@@ -63,19 +69,25 @@ function mem (spawn) {
         }
     }
 }
-
-
-    /**
-     * @param {string} name
-     * @returns {Array}
-    */
-    mem.prototype.getSteck = function(name){
-        flagsconsole ? console.log('getSteck'):0;
-        if (this.mem[name] === undefined){
-            return undefined;
-        }
-        return this.mem[name].steck[0];
+/**
+ * @param {string} name
+ * @returns {Array}
+*/
+mem.prototype.getSteck = function(name){
+    flagsconsole ? console.log('getSteck'):0;
+    if (this.mem[name] === undefined){
+        return undefined;
     }
+    return this.mem[name].steck[0];
+}
+mem.prototype.shiftLocal = function(name){
+    flagsconsole ? console.log('shiftLocal'):0;
+    if (this.mem[name] === undefined){
+        return undefined;
+    }
+    return this.mem[name].steck.shift();
+}
+
 
 
 
@@ -83,7 +95,8 @@ const FSM = {
     action: {
         /**
          * @param {StructureSpawn} spawn
-         * @param {string} build
+         * @param {string} type
+         * @param {string} position
          */
         spawnCreeps: function(spawn,type,position){
             flagsconsole ? console.log('spawnCreeps'):0;
