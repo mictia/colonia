@@ -45,7 +45,7 @@ module.exports = {
  * @this mem
 */
 function mem (spawn) {
-    flagsconsole ? console.log('run'):0;
+    flagsconsole ? console.log('mem'):0;
     const steck = spawn.memory.steck;
     if (steck != undefined){
         let name = spawn.name;
