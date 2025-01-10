@@ -34,7 +34,7 @@ module.exports = {
         }
         
         const steck = this.mem.getSteckLocal(spawn);
-        if(steck === undefined){
+        if((steck === undefined)||(steck === null)){
             return room;
         }
         console.log(steck);
@@ -70,7 +70,7 @@ function mem (spawn) {
         this.gMem = Memory.spawns.globalEvent
         this.count = 0;
     } else {
-        flagsconsole ? console.log('steck != undefined else'+steck):0;
+        flagsconsole ? console.log('steck != undefined else '+steck):0;
         spawn.memory = {steck:[[]]};
         const gEvent = Memory.spawns.globalEvent;
         if(gEvent === undefined){
@@ -83,10 +83,6 @@ function mem (spawn) {
 
 mem.prototype.getSteckLocal = function(spawn){
     flagsconsole ? console.log('getSteckLocal '+spawn.name):0;
-    console.log(this.mem);
-    if (this.mem[spawn.name] === undefined){
-        return undefined;
-    }
     if(this.mem[spawn.name].steck[0] === undefined){
         return undefined;
     }
@@ -94,7 +90,7 @@ mem.prototype.getSteckLocal = function(spawn){
 }
 mem.prototype.shiftLocal = function(spawn){
     flagsconsole ? console.log('shiftLocal '+spawn.name):0;
-    if (this.mem[spawn.name] === undefined){
+    if (this.mem[spawn.name].steck === undefined){
         return undefined;
     }
     return this.mem[spawn.name].steck.shift();
