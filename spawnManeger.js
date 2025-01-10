@@ -70,6 +70,7 @@ function mem (spawn) {
         this.gMem = Memory.spawns.globalEvent
         this.count = 0;
     } else {
+        flagsconsole ? console.log('steck != undefined else'):0;
         spawn.memory.steck = [];
         const gEvent = Memory.spawns.globalEvent;
         if(gEvent === undefined){
