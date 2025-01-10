@@ -84,7 +84,8 @@ function mem (spawn) {
 
 mem.prototype.getSteckLocal = function(spawn){
     flagsconsole ? console.log('getSteckLocal '+spawn.name):0;
-    if(this.mem[spawn.name].steck[0] === undefined){
+    let events = this.mem[spawn.name].steck[0] === undefined
+    if( (events === undefined)||(events[0]===undefined)){
         return undefined;
     }
     return this.mem[spawn.name].steck[0];
@@ -117,11 +118,11 @@ const FSM = {
         spawnCreeps: function(spawn,type,position){
             flagsconsole ? console.log('FSM->action->spawnCreeps'):0;
             const energi = spawn.room.energyAvailable;
-            const body = creepBuild[position][type].body;
+            const bodys = creepBuild[position][type].body;
             const name = creepBuild[position][type].name+Game.time;
             const memory = creepBuild[position][type].mem;
             if(position<=energi){
-                const error = spawn.spawnCreep(body,name,memory);
+                const error = spawn.spawnCreep(bodys,name,memory);
                 return error;
             }
             return -6;
