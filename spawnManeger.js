@@ -34,7 +34,7 @@ module.exports = {
         }
         
         const steck = this.mem.getSteckLocal(spawn);
-        if((steck === undefined)||(steck[0] === null)){
+        if((steck[0] === undefined)||(steck[0] === null)){
             return room;
         }
         console.log(steck);
