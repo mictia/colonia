@@ -72,10 +72,10 @@ function chekSpawn(){
     let spawns = Game.spawns;
     for (let name in spawns){
         let nameRoom = spawns[name].room.name;
-        if(nameRoom === _.find(roomMassiveControle,nameRoom)){
+        if(nameRoom === roomMassiveControle.find((os)=> {os===nameRoom})){
             continue;
         } else {
-            console.log("ERRRO"+ _.find(roomMassiveControle,nameRoom));
+            console.log("ERRRO"+ roomMassiveControle.find((os)=> {os===nameRoom}));
             roomMassiveControle.push(nameRoom);
         }
         if(position.save[nameRoom] === undefined){
