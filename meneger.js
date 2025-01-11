@@ -69,9 +69,9 @@ let position = {
 
 function chekSpawn(){
     flagsconsole?console.log("meneger->chekResourcesSpawn"):0;
-    let spawn = Game.spawns;
-    for (let name in spawn){
-        let nameRoom = spawn[name].room.name;
+    let spawns = Game.spawns;
+    for (let name in spawns){
+        let nameRoom = spawns[name].room.name;
         console.log(name);
         if(nameRoom != _.find(roomMassiveControle,nameRoom)){
             roomMassiveControle.push(nameRoom);
@@ -85,7 +85,7 @@ function chekSpawn(){
             for(let i in exitRoom){
                 date.nameExitRoom.push(exitRoom[i]);
             }
-            let target = Game.spawns[name].room.find(FIND_SOURCES);
+            let target = spawns.room.find(FIND_SOURCES);
         
             for(let i in target){
                 let s = crossAnalysisArray(target[i],nameRoom);
