@@ -14,6 +14,6 @@ module.exports.loop = function(){
     for(let name in Game.spawns){
         spawner.start(Game.spawns[name]);
     }
-
+    meneger.step();
     meneger.saveMemory();
 }
