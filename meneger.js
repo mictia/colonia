@@ -26,7 +26,7 @@ module.exports = {
             Memory = {rooms:{}};
         } else {
             if(Memory.rooms.globalEvents === undefined||Memory.rooms.position === undefined){
-                Memory.rooms = {globalEvents:[],position:[]};
+                Memory.rooms = {globalEvents:[],position:{}};
 
             }
         }
@@ -40,18 +40,15 @@ module.exports = {
             this.position = [];
         }
         if(saveRoomSpawn != undefined){
-            this.position.push(saveRoomSpawn);
-            if(position.length <= this.position.length){
-                position = this.position;
-            }
+            position = saveRoomSpawn;
         }
     },
     saveMemory: function(){
-        flagsconsole?console.log("saveMemory globalEvents "+gEvent.length+" position "+position.length):0;
+        flagsconsole?console.log("saveMemory globalEvents "+gEvent.length+" position "+position):0;
         Memory.rooms.globalEvents = gEvent;
-        Memory.rooms.position = position
+        Memory.rooms.position = position;
     }
 }
-let position = [];  
+let position = {};  
 let gEvent = [];
 
