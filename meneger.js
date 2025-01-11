@@ -17,7 +17,7 @@ const creepBuild = {
         priority:{mainer:1,transport:1, build_controller:0},
     }
 }
-
+var _ = require('lodash');
 
 module.exports = {
     init: function(){
