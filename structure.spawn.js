@@ -29,5 +29,5 @@ const save = {
     steck:'',
     event:[[]]
 }
-const memorySpawn = {
+let memorySpawn = {
 }
