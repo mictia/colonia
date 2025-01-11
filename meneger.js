@@ -77,7 +77,7 @@ function chekSpawn(){
         } else {
             continue;
         }
-        if(position.save[nameRoom].nameSpawn[0] === undefined){
+        if(position.save[nameRoom] === undefined){
             console.log("------meneger->chekResourcesSpawn");
             let date = controleRoom;
             date.nameSpawn.push(name);
