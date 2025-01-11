@@ -68,7 +68,7 @@ module.exports = {
                     }
                     return false;
                 })
-                sources[roomName] = {[id]:{dist:pos,free:free.length}};
+                sources[roomName][id]={dist:pos,free:free.length};
             }
         }
     },
