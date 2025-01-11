@@ -27,7 +27,7 @@ module.exports = {
             return;
         }
         for (let i in Memory.rooms){
-            if(i === "roomMassiveControle"){
+            if(i === "masiveControle"){
                 roomMassiveControle = Memory.rooms[i]
                 continue
             }
