@@ -55,9 +55,9 @@ const sources = {
     cross:0,
 }
 //massive
-const roomMassiveControle = [];
+let roomMassiveControle = [];
 
-const position = {
+let position = {
     save:{},
 
 }
