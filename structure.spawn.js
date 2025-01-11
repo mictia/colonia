@@ -12,14 +12,14 @@ module.exports = {
         const roomName = {[spawn.room.name]:spawn.name};
         const MemSave = Memory.spawns[spawn.name];
         if( MemSave === undefined){
-            flagsconsole?console.log("Memory.spawn = {"+spawn.name+":"+save.steck+","+save.event+"}"):0;
+            flagsconsole?console.log("Memory.spawn = {"+spawn.name+"}"):0;
             Memory.spawns = {[spawn.name]:{}}; 
             Memory.spawns[spawn.name] = save;        
         }
         if(memorySpawn[spawn.name] === undefined){
             flagsconsole?console.log("chek memorySpawn"):0;
 
-            memorySpawn[spawn.name] = MemSave;
+            memorySpawn[spawn.name] = spawn.memory;
         }
 
         //code
