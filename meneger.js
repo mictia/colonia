@@ -55,7 +55,6 @@ module.exports = {
             roomName = position[name];
             spawnName = name;
             target = Game.spawns[spawnName].room.find(FIND_SOURCES_ACTIVE);
-            
             for(let i in target){
                 let pos = Game.spawns[spawnName].pos.getRangeTo(target[i].pos);
                 let id = target[i].id;
@@ -68,7 +67,7 @@ module.exports = {
                     }
                     return false;
                 })
-                sources[roomName].push({dist:pos,id:id,free:free.length});
+                sources[roomName] = push({dist:pos,id:id,free:free.length});
             }
         }
     },
