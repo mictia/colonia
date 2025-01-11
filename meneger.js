@@ -38,6 +38,9 @@ module.exports = {
     //{[spawn.name]:spawn.room.name}
     saveRoomSpawn: function(saveRoomSpawn){
         flagsconsole?console.log("saveRoomSpawn"):0;
+        if(this.position === undefined){
+            this.position = [];
+        }
         if(saveRoomSpawn != undefined){
             this.position.push(saveRoomSpawn);
             if(position.length <= this.position.length){
