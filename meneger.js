@@ -72,13 +72,12 @@ function chekSpawn(){
     let spawns = Game.spawns;
     for (let name in spawns){
         let nameRoom = spawns[name].room.name;
-        console.log(nameRoom);
         if(nameRoom != _.find(roomMassiveControle,nameRoom)){
             roomMassiveControle.push(nameRoom);
         } else {
             continue;
         }
-        if(position.save[roomName].nameSpawn[0] === undefined){
+        if(position.save[nameRoom].nameSpawn[0] === undefined){
             let date = controleRoom;
             date.nameSpawn.push(name);
             let exitRoom = Game.map.describeExits(nameRoom)
