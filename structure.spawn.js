@@ -10,7 +10,7 @@ module.exports = {
         const roomName = {[spawn.name]:spawn.room.name};
         if(Memory.spawns[spawn.name] === undefined){
             Memory.spawns = {[spawn.name]:save}
-            flagsconsole?console.log("Memory.spawn = {${spawn.name}:${save}}"):0;
+            flagsconsole?console.log("Memory.spawn = {"+spawn.name+":"+save+"}"):0;
         }
         memorySpawn = {[spawn.name]:save};
 
