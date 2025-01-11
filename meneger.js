@@ -75,8 +75,11 @@ function chekSpawn(){
         if(nameRoom === roomMassiveControle.find(os=>os===nameRoom)){
             continue;
         } else {
-            console.log("ERRRO"+ roomMassiveControle.find(os=>os===nameRoom));
+            flagsconsole?console.log("-----add"):0;
             roomMassiveControle.push(nameRoom);
+            roomMassiveControle = roomMassiveControle.filter(function(elem,index,arr){
+                return arr.indexOf(elem) === index
+            });
         }
         if(position.save[nameRoom] === undefined){
             console.log("------meneger->chekResourcesSpawn->create");
