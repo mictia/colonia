@@ -2,7 +2,7 @@ const meneger = require('meneger');
 const creep = require('creeps');
 const spawner = require('structure.spawn');
 const flagsconsole = true;
-const start = undefined;
+let start = undefined;
 module.exports.loop = function(){
     flagsconsole?console.log("loop"):0;
     if(start === undefined){
