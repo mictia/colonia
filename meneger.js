@@ -72,7 +72,7 @@ function chekSpawn(){
     let spawns = Game.spawns;
     for (let name in spawns){
         let nameRoom = spawns[name].room.name;
-        if(nameRoom != _.find(roomMassiveControle,nameRoom)){
+        if(nameRoom !== _.find(roomMassiveControle,nameRoom)){
             console.log("ERRRO");
             roomMassiveControle.push(nameRoom);
         } else {
