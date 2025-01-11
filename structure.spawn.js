@@ -19,7 +19,7 @@ module.exports = {
         if(memorySpawn[spawn.name] === undefined){
             flagsconsole?console.log("------chek memorySpawn"):0;
 
-            memorySpawn[spawn.name] = spawn.memory;
+            memorySpawn.save[spawn.name] = spawn.memory;
         }
 
         //code
