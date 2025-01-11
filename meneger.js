@@ -61,7 +61,7 @@ module.exports = {
                 let id = target[i].id;
                 let x = target[i].pos.x;
                 let y = target[i].pos.y;
-                let free = Game.spawns[spawnName].room.lookAtArea(y-1,x-1,y+1,x+1);
+                let free = Game.spawns[spawnName].room.lookAtArea(y-1,x-1,y+1,x+1,true);
 
                 free = _.filter(free,function(chk){
                     console.log(chk.type);
