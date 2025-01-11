@@ -19,10 +19,8 @@ module.exports = {
             let timeSave = save;
             timeSave.steck = spawn.memory.steck;
             timeSave.event = spawn.memory.event;
-            memorySpawn = {[spawn.name]:timeSave};
+            memorySpawn.setSpawn(spawn.name, timeSave);
         }
-
-        flagsconsole?console.log(memorySpawn.saveMemory):0;
         memorySpawn.saveMemory(spawn);
         return roomName;
     }
@@ -34,6 +32,14 @@ const save = {
     event:[[]]
 }
 let memorySpawn = {
+    setSpawn: function(spawnName, save){
+        flagsconsole?console.log("structure.spawns=>setSpawn"+spawnName+":"+save):0;
+        if(spawnName === undefined || save === undefined){
+            return undefined;
+        }
+        this[spawnName] = save;
+        return true;
+    },
     getNameSpawn: function(name){
         flagsconsole?console.log("structure.spawns=>getNameSpawn"):0;
         return this[name];
