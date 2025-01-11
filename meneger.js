@@ -24,98 +24,88 @@ module.exports = {
         flagsconsole?console.log("meneger init"):0;
         if(Memory.rooms === undefined){
             Memory = {rooms:{}};
-        } else {
-            if(Memory.rooms.globalEvents === undefined||Memory.rooms.position === undefined||Memory.rooms.sources === undefined){
-                Memory.rooms = {globalEvents:[],position:{},sources:{}};
+            return;
+        }
+        for (let i in Memory.rooms){
+            if(i === "roomMassiveControle"){
+                roomMassiveControle = Memory.rooms[i]
+                continue
             }
-        }
-        gEvent = Memory.rooms.globalEvents;
-        position = Memory.rooms.position;
-        sources = Memory.rooms.sources;
-    },
-    //{[spawn.name]:spawn.room.name}
-    saveRoomSpawn: function(saveRoomSpawn){
-        flagsconsole?console.log("meneger->saveRoomSpawn"):0;
-        if(saveRoomSpawn != undefined){
-            position = saveRoomSpawn;
+            position.save[i] = Memory.rooms[i];
         }
     },
-
-    step: function(){
-        flagsconsole?console.log("meneger->step"):0;
-        switch (this.gEvent){
-            case 'chekResourcesSpawn':
-                this.chekResourcesSpawn();
-            break;
-            case 'timeSleep':
-                let is = this.timeSleep();
-                if(is){
-                    this.varible();
-                }
-            break;
-        }
-    },
-    varible: function(){
-        const sources = Memory.sources;
-        for(let name in position){
-            let roomName = position[name];
-            if(sources[roomName] === undefined){
-                this.qEvent.shift('chekResourcesSpawn');
-            }
-        }
-        
-    },
-    chekResourcesSpawn: function(){
-        flagsconsole?console.log("meneger->chekResourcesSpawn"):0;
-        let roomName;
-        let spawnName;
-        let target;
-        for(let name in position){
-            let sources_find = [];
-            roomName = position[name];
-            spawnName = name;
-            target = Game.spawns[spawnName].room.find(FIND_SOURCES);
-            for(let i in target){
-                let pos = Game.spawns[spawnName].pos.getRangeTo(target[i].pos);
-                let id = target[i].id;
-                let x = target[i].pos.x;
-                let y = target[i].pos.y;
-                let free = Game.spawns[spawnName].room.lookAtArea(y-1,x-1,y+1,x+1,true);
-
-                free = _.filter(free,function(chk){
-                    if(chk.type === 'terrain'){
-                        return chk.terrain === 'plain'||chk.terrain === 'swamp';
-                    }
-                    return false;
-                })
-                sources[roomName][id]={dist:pos,free:free.length};
-            }
-        }
-    },
-    timeSleep: function(){
-        flagsconsole?console.log("meneger->timeSleep"):0;
-        const time = Memory.rooms.timeSleep;
-        if(time === undefined|| time === null){
-            Memory.rooms.timeSleep = 0;
-        }
-        if(time < Game.time){
-            Memory.rooms.timeSleep = Game.time+10;
-            return false;
-        }
-        if(time === Game.time){
-            return true
-        }
-        return false;
-    },
+    //{spawnName:spawn.name, roomName:spawn.room.name};
     saveMemory: function(){
-        flagsconsole?console.log("meneger->saveMemory globalEvents "+gEvent.length+" position "+position):0;
-        Memory.rooms.globalEvents = gEvent;
-        Memory.rooms.position = position;
-        Memory.rooms.sources = sources;
+        flagsconsole?console.log("meneger->saveMemory"):0;
+        Memory.rooms = {masiveControle:roomMassiveControle}
+        for (let i in position.save){
+            Memory.rooms[i]=position.save[i];
+        }
+    }
+}
+//interface
+const controleRoom ={
+        nameSpawn:[],
+        nameExitRoom: [],
+        sources_id:[],
+        steck:'',
+}
+const sources = {
+    id:'',
+    cross:0,
+}
+//massive
+const roomMassiveControle = [];
+
+const position = {
+    save:{},
+
+}
+
+
+function chekSpawn(){
+    flagsconsole?console.log("meneger->chekResourcesSpawn"):0;
+    let spawn = Game.spawns;
+    for (let name in spawn){
+        let nameRoom = spawn[name].room.name;
+
+        if(nameRoom != _.find(roomMassiveControle,nameRoom)){
+            roomMassiveControle.push(nameRoom);
+        } else {
+            continue;
+        }
+        if(position.save[roomName].nameSpawn[0] === undefined){
+            let date = controleRoom;
+            date.nameSpawn.push(name);
+            let exitRoom = Game.map.describeExits(nameRoom)
+            for(let i in exitRoom){
+                date.nameExitRoom.push(exitRoom[i]);
+            }
+            let target = Game.spawns[name].room.find(FIND_SOURCES);
+        
+            for(let i in target){
+                let s = crossAnalysisArray(target[i],nameRoom);
+                date.sources_id.push({id:target[i].id,cross:s});
+            }
+            position.save[nameRoom] = date;
+        }
+            
+
     }
 }
 
-//Memory.rooms = {globalEvents:[],position:{},sources:{}}
-let position = {};  
-let gEvent = [];
-let sources = {}
+function crossAnalysisArray(target,nameRoom){
+    const room = new Room(nameRoom);
+    let x = target.pos.x;
+    let y = target.pos.y;
+    let free = room.lookAtArea(y-1,x-1,y+1,x+1,true);
+
+    free = _.filter(free,function(chk){
+        if(chk.type === 'terrain'){
+            return chk.terrain === 'plain'||chk.terrain === 'swamp';
+        }
+        return false;
+    })
+    return free.length
+    
+}

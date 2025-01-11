@@ -11,10 +11,8 @@ module.exports.loop = function(){
         start = meneger.init();
     }
     for(let name in Game.spawns){
-        meneger.saveRoomSpawn(spawner.start(Game.spawns[name]));
+        spawner.start(Game.spawns[name]);
     }
 
-
-    //meneger.step();
-    //meneger.saveMemory();
+    meneger.saveMemory();
 }
