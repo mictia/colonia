@@ -1,6 +1,6 @@
 const meneger = require('meneger');
 const creep = require('creeps');
-const spawn = require('structure.spawn');
+const spawner = require('structure.spawn');
 const flagsconsole = true;
 const start = undefined;
 module.exports.loop = function(){
@@ -9,7 +9,8 @@ module.exports.loop = function(){
         start = meneger.init();
     }
     for(let name in Game.spawns){
-        spawn.start(Game.spawns[name]);
+        console.log('looop');
+        spawner.start(Game.spawns[name]);
     }
 
 
