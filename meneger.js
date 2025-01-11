@@ -68,7 +68,7 @@ module.exports = {
                     }
                     return false;
                 })
-                sources[roomName] = sources_find.push({dist:pos,id:id,free:free.length});
+                sources[roomName] = {[id]:{dist:pos,free:free.length}};
             }
         }
     },
