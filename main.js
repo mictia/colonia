@@ -1,7 +1,7 @@
 const meneger = require('meneger');
 const creep = require('creeps');
 const spawner = require('structure.spawn');
-const { machine } = require('os');
+
 const flagsconsole = true;
 let start = undefined;
 module.exports.loop = function(){
