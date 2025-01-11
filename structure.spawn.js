@@ -9,7 +9,8 @@ module.exports = {
     start:function(spawn){
         flagsconsole?console.log("structure.spawns=>start"):0;
         const roomName = {[spawn.name]:spawn.room.name};
-        if(Memory.spawns[spawn.name] === undefined){
+        const MemSave = Memory.spawns[spawn.name];
+        if( MemSave === undefined){
             flagsconsole?console.log("Memory.spawn = {"+spawn.name+":"+save.steck+","+save.event+"}"):0;
             Memory.spawns = {[spawn.name]:save}
         }
@@ -21,7 +22,7 @@ module.exports = {
             memorySpawn = {[spawn.name]:timeSave};
         }
 
-
+        flagsconsole?console.log(memorySpawn.saveMemory):0;
         memorySpawn.saveMemory(spawn);
         return roomName;
     }
@@ -34,6 +35,7 @@ const save = {
 }
 let memorySpawn = {
     getNameSpawn: function(name){
+        flagsconsole?console.log("structure.spawns=>getNameSpawn"):0;
         return this[name];
     },
     getSteck: function(spawn){
