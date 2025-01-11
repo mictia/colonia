@@ -52,6 +52,7 @@ module.exports = {
         let spawnName;
         let target;
         for(let name in position){
+            let sources_find = [];
             roomName = position[name];
             spawnName = name;
             target = Game.spawns[spawnName].room.find(FIND_SOURCES_ACTIVE);
@@ -67,7 +68,7 @@ module.exports = {
                     }
                     return false;
                 })
-                sources[roomName] = push({dist:pos,id:id,free:free.length});
+                sources[roomName] = sources_find.push({dist:pos,id:id,free:free.length});
             }
         }
     },
