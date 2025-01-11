@@ -13,7 +13,7 @@ module.exports = {
         const MemSave = Memory.spawns[spawn.name];
         if( MemSave === undefined){
             flagsconsole?console.log("Memory.spawn = {"+spawn.name+":"+save.steck+","+save.event+"}"):0;
-
+            Memory.spawns = {[spawn.name]:{}}; 
             Memory.spawns[spawn.name] = save;        
         }
         if(memorySpawn[spawn.name] === undefined){
