@@ -72,11 +72,11 @@ function chekSpawn(){
     let spawns = Game.spawns;
     for (let name in spawns){
         let nameRoom = spawns[name].room.name;
-        if(nameRoom !== _.find(roomMassiveControle,nameRoom)){
+        if(nameRoom === _.find(roomMassiveControle,nameRoom)){
+            continue;
+        } else {
             console.log("ERRRO");
             roomMassiveControle.push(nameRoom);
-        } else {
-            continue;
         }
         if(position.save[nameRoom] === undefined){
             console.log("------meneger->chekResourcesSpawn->create");
