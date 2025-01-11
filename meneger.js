@@ -51,6 +51,6 @@ module.exports = {
         Memory.rooms.position = position
     }
 }
-const position = [];
-const gEvent = [];
+let position = [];
+let gEvent = [];
 
