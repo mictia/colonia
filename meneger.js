@@ -73,12 +73,13 @@ function chekSpawn(){
     for (let name in spawns){
         let nameRoom = spawns[name].room.name;
         if(nameRoom != _.find(roomMassiveControle,nameRoom)){
+            console.log("ERRRO");
             roomMassiveControle.push(nameRoom);
         } else {
             continue;
         }
         if(position.save[nameRoom] === undefined){
-            console.log("------meneger->chekResourcesSpawn");
+            console.log("------meneger->chekResourcesSpawn->create");
             let date = controleRoom;
             date.nameSpawn.push(name);
             let exitRoom = Game.map.describeExits(nameRoom);
