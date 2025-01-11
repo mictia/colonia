@@ -21,7 +21,7 @@ module.exports = {
         }
 
 
-        
+
         memorySpawn.saveMemory(spawn);
         return roomName;
     }
@@ -40,7 +40,7 @@ let memorySpawn = {
         flagsconsole?console.log("structure.spawns=>step"):0;
     },
     saveMemory:function(spawn){
-        spawn.memory = this[spawn.name];
         flagsconsole?console.log("structure.spawns=>saveMemory"):0;
+        spawn.memory = this[spawn.name];
     }
 }
