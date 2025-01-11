@@ -41,7 +41,11 @@ module.exports = {
         for (let i in position.save){
             Memory.rooms[i]=position.save[i];
         }
+    },
+    step:function(){
+        chekSpawn();
     }
+
 }
 //interface
 const controleRoom ={
@@ -95,6 +99,7 @@ function chekSpawn(){
 }
 
 function crossAnalysisArray(target,nameRoom){
+    flagsconsole?console.log("meneger->crossAnalysisArray"):0;
     const room = new Room(nameRoom);
     let x = target.pos.x;
     let y = target.pos.y;
