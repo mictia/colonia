@@ -13,7 +13,7 @@ module.exports = {
             flagsconsole?console.log("Memory.spawn = {"+spawn.name+":"+save.steck+","+save.event+"}"):0;
             Memory.spawns = {[spawn.name]:save}
         }
-        if(memorySpawn[spawn.name] === undefined){
+        if(memorySpawn.getNameSpawn(spawn.name) === undefined){
             flagsconsole?console.log("chek memorySpawn"):0;
             let timeSave = save;
             timeSave.steck = spawn.memory.steck;
@@ -33,6 +33,9 @@ const save = {
     event:[[]]
 }
 let memorySpawn = {
+    getNameSpawn: function(name){
+        return this[name];
+    },
     getSteck: function(spawn){
         flagsconsole?console.log("structure.spawns=>getSteck"):0;
     },
