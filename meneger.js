@@ -47,11 +47,11 @@ module.exports = {
         }
     },
     saveMemory: function(){
-        flagsconsole?console.log("saveMemory "+gEvent+" "+position):0;
+        flagsconsole?console.log("saveMemory globalEvents "+gEvent.length+" position "+position.length):0;
         Memory.rooms.globalEvents = gEvent;
         Memory.rooms.position = position
     }
 }
-let position = [];
+let position = [];  
 let gEvent = [];
 
