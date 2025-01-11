@@ -62,7 +62,9 @@ module.exports = {
                 let x = target[i].pos.x;
                 let y = target[i].pos.y;
                 let free = Game.spawns[spawnName].room.lookAtArea(y-1,x-1,y+1,x+1);
+
                 free = _.filter(free,function(chk){
+                    console.log(chk.type);
                     if(chk.type === 'terrain'){
                         return chk.terrain === 'plain'||chk.terrain === 'swamp';
                     }
