@@ -85,7 +85,7 @@ function chekSpawn(){
             for(let i in exitRoom){
                 date.nameExitRoom.push(exitRoom[i]);
             }
-            let target = spawns.room.find(FIND_SOURCES);
+            let target = spawns[name].room.find(FIND_SOURCES);
         
             for(let i in target){
                 let s = crossAnalysisArray(target[i],nameRoom);
