@@ -75,7 +75,7 @@ function chekSpawn(){
         if(nameRoom === _.find(roomMassiveControle,nameRoom)){
             continue;
         } else {
-            console.log("ERRRO");
+            console.log("ERRRO"+ _.find(roomMassiveControle,nameRoom));
             roomMassiveControle.push(nameRoom);
         }
         if(position.save[nameRoom] === undefined){
