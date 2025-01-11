@@ -78,9 +78,10 @@ function chekSpawn(){
             continue;
         }
         if(position.save[nameRoom].nameSpawn[0] === undefined){
+            console.log("------meneger->chekResourcesSpawn");
             let date = controleRoom;
             date.nameSpawn.push(name);
-            let exitRoom = Game.map.describeExits(nameRoom)
+            let exitRoom = Game.map.describeExits(nameRoom);
             for(let i in exitRoom){
                 date.nameExitRoom.push(exitRoom[i]);
             }
