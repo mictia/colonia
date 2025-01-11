@@ -19,11 +19,8 @@ module.exports = {
         if(memorySpawn[spawn.name] === undefined){
             flagsconsole?console.log("------chek memorySpawn"):0;
 
-            memorySpawn.save[spawn.name] = spawn.memory;
+            memorySpawn.save[spawn.name] = MemSave;
         }
-
-        //code
-
 
         memorySpawn.saveMemory(spawn);
         return roomName;
@@ -51,8 +48,5 @@ let memorySpawn = {
             flagsconsole?console.log("save "+this.save[spawn.name]):0;
             spawn.memory = this.save[spawn.name];
         } 
-        for(let i in this.save);{
-            console.log(i);
-        }
     },
 }
