@@ -17,3 +17,15 @@ const creepBuild = {
         priority:{mainer:1,transport:1, build_controller:0},
     }
 }
+
+
+module.exports = {
+    init: function(){
+        flagsconsole?console.log("meneger init"):0;
+
+    },
+    saveSpawn: function(){
+        flagsconsole?console.log("saveSpawn"):0;
+        
+    }
+}
