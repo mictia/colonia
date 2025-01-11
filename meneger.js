@@ -22,10 +22,35 @@ const creepBuild = {
 module.exports = {
     init: function(){
         flagsconsole?console.log("meneger init"):0;
-
+        if(Memory.rooms === undefined){
+            Memory = {rooms:{}};
+        } else {
+            if(Memory.rooms.globalEvents === undefined){
+                Memory.rooms = {globalEvents:[]};
+            }
+            if(Memory.rooms.position === undefined){
+                Memory.rooms = {position:[]};
+            }
+        }
+        gEvent = Memory.rooms.globalEvents;
+        position = Memory.rooms.position;
     },
-    saveSpawn: function(){
-        flagsconsole?console.log("saveSpawn"):0;
-        
+    //{[spawn.name]:spawn.room.name}
+    saveRoomSpawn: function(saveRoomSpawn){
+        flagsconsole?console.log("saveRoomSpawn"):0;
+        if(saveRoomSpawn != undefined){
+            this.position.push(saveRoomSpawn);
+            if(position.length <= this.position.length){
+                position = this.position;
+            }
+        }
+    },
+    saveMemory: function(){
+        flagsconsole?console.log("saveMemory"):0;
+        Memory.rooms.globalEvents = gEvent;
+        Memory.rooms.position = position
     }
 }
+const position = [];
+const gEvent = [];
+
