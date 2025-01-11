@@ -68,7 +68,7 @@ module.exports = {
                     }
                     return false;
                 })
-                sources = {[roomName]: {dist:pos,id:id,free:free.length}};
+                sources[roomName].pus({dist:pos,id:id,free:free.length});
             }
         }
     },
