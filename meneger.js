@@ -49,7 +49,7 @@ module.exports = {
         }
     },
     saveMemory: function(){
-        flagsconsole?console.log("saveMemory"):0;
+        flagsconsole?console.log("saveMemory"+gEvent.length+" "+position.length):0;
         Memory.rooms.globalEvents = gEvent;
         Memory.rooms.position = position
     }
