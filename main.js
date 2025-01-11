@@ -9,7 +9,6 @@ module.exports.loop = function(){
         start = meneger.init();
     }
     for(let name in Game.spawns){
-        console.log('looop');
         spawner.start(Game.spawns[name]);
     }
 
