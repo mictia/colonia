@@ -25,11 +25,9 @@ module.exports = {
         if(Memory.rooms === undefined){
             Memory = {rooms:{}};
         } else {
-            if(Memory.rooms.globalEvents === undefined){
-                Memory.rooms = {globalEvents:[]};
-            }
-            if(Memory.rooms.position === undefined){
-                Memory.rooms = {position:[]};
+            if(Memory.rooms.globalEvents === undefined||Memory.rooms.position === undefined){
+                Memory.rooms = {globalEvents:[],position:[]};
+
             }
         }
         gEvent = Memory.rooms.globalEvents;
