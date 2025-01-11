@@ -43,9 +43,28 @@ module.exports = {
 
     step: function(){
         flagsconsole?console.log("meneger->step"):0;
-
+        switch (this.gEvent){
+            case 'chekResourcesSpawn':
+                this.chekResourcesSpawn();
+            break;
+            case 'timeSleep':
+                let is = this.timeSleep();
+                if(is){
+                    this.varible();
+                }
+            break;
+        }
     },
-
+    varible: function(){
+        const sources = Memory.sources;
+        for(let name in position){
+            let roomName = position[name];
+            if(sources[roomName] === undefined){
+                this.qEvent.shift('chekResourcesSpawn');
+            }
+        }
+        
+    },
     chekResourcesSpawn: function(){
         flagsconsole?console.log("meneger->chekResourcesSpawn"):0;
         let roomName;
@@ -64,7 +83,6 @@ module.exports = {
                 let free = Game.spawns[spawnName].room.lookAtArea(y-1,x-1,y+1,x+1,true);
 
                 free = _.filter(free,function(chk){
-                    console.log(chk.type);
                     if(chk.type === 'terrain'){
                         return chk.terrain === 'plain'||chk.terrain === 'swamp';
                     }
@@ -73,6 +91,21 @@ module.exports = {
                 sources[roomName][id]={dist:pos,free:free.length};
             }
         }
+    },
+    timeSleep: function(){
+        flagsconsole?console.log("meneger->timeSleep"):0;
+        const time = Memory.rooms.timeSleep;
+        if(time === undefined|| time === null){
+            Memory.rooms.timeSleep = 0;
+        }
+        if(time < Game.time){
+            Memory.rooms.timeSleep = Game.time+10;
+            return false;
+        }
+        if(time === Game.time){
+            return true
+        }
+        return false;
     },
     saveMemory: function(){
         flagsconsole?console.log("meneger->saveMemory globalEvents "+gEvent.length+" position "+position):0;

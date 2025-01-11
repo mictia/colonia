@@ -6,6 +6,7 @@ const flagsconsole = true;
 let start = undefined;
 module.exports.loop = function(){
     flagsconsole?console.log("loop"):0;
+
     if(start === undefined){
         start = meneger.init();
     }
@@ -14,6 +15,6 @@ module.exports.loop = function(){
     }
 
 
-    meneger.chekResourcesSpawn();
-    meneger.saveMemory();
+    //meneger.step();
+    //meneger.saveMemory();
 }
