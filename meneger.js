@@ -55,7 +55,7 @@ module.exports = {
             let sources_find = [];
             roomName = position[name];
             spawnName = name;
-            target = Game.spawns[spawnName].room.find(FIND_SOURCES_ACTIVE);
+            target = Game.spawns[spawnName].room.find(FIND_SOURCES);
             for(let i in target){
                 let pos = Game.spawns[spawnName].pos.getRangeTo(target[i].pos);
                 let id = target[i].id;
