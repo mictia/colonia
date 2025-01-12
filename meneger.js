@@ -74,7 +74,7 @@ module.exports = {
                 sourceLen = sourcesFreePlain();
             }
         }
-
+        flagElse?console.log("meneger->analitick creeps.miner"):0;
         if(creepLen.mainer < sourceLen){
             spawnCreep(type);
         }
