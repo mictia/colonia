@@ -67,6 +67,9 @@ module.exports = {
         sourceLen = Memory.rooms.globalSources;
         if(sourceLen === undefined){
             sourceLen = Memory.rooms.globalSources = 0;
+        } 
+        if(Object.keys(Memory.rooms).length <= 1){
+            analiticRoom();
         }
 
         if(creepLen.mainer < sourceLen){
@@ -81,6 +84,7 @@ module.exports = {
 }
 
 function spawnCreep(type){
+    flagsconsole?console.log("meneger->start"):0;
     for(let i in Game.rooms){
         let nameSpawn = Game.rooms[i].memory.spawns;
         for(let s in nameSpawn){
