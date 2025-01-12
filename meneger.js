@@ -109,7 +109,7 @@ function analiticRoom(){
             let spawns = Game.rooms[name].find(FIND_MY_SPAWNS);
             let cool = [];
             for (let i in spawns){
-                cool.push(i);
+                cool.push(spawns[i].name);
             }
             Game.rooms[name].memory.spawns = cool;
         }
