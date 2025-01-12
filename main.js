@@ -1,5 +1,5 @@
 const meneger = require('meneger');
-const creep = require('creeps');
+
 const spawner = require('structure.spawn');
 
 const flagsconsole = true;

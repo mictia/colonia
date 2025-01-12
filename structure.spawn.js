@@ -10,10 +10,10 @@ module.exports = {
     /**@param {StructureSpawn} spawn */
     start:function init(spawn){
         flagsconsole?console.log("structure.spawns=>start"):0;
-        let name = spawn.name
+        let name = spawn.name;
         if(!init.cache) {
             flagElse?console.log("structure.spawns=>start chek sereealization"):0;
-            init.cache = {}
+            init.cache = {};
         };
         if(init.cache === null){
             /**@type {memorySpawn} */
