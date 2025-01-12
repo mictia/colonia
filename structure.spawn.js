@@ -18,7 +18,7 @@ module.exports = {
                 if(error){mem.steck = '';mem.role = ''}
             break;
         }
-        spawn.memory = init.cache[name];
+        spawn.memory = mem;
         return undefined;
     },
 
