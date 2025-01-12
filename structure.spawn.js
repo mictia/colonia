@@ -1,53 +1,32 @@
 const flagsconsole = true;
+const flagElse = true;
 
 
 
 
+let memorySpawn = {steck:'',getId:'',role:'',energiType:0};
 
 module.exports = {
     /**@param {StructureSpawn} spawn */
-    start:function(spawn){
+    start:function init(spawn){
         flagsconsole?console.log("structure.spawns=>start"):0;
-        const MemSave = Memory.spawns[spawn.name];
-        if( MemSave === undefined){
-            flagsconsole?console.log("------Memory.spawn = {"+spawn.name+"}"):0;
-            Memory.spawns = {[spawn.name]:save}; 
-            return ;       
-        } else {
-            if(memorySpawn[spawn.name] === undefined){
-                flagsconsole?console.log("------chek memorySpawn"):0;
-    
-                memorySpawn.save[spawn.name] = MemSave;
+        let name = spawn.name
+        if(!init.cache) {
+            flagElse?console.log("structure.spawns=>start chek sereealization"):0;
+            init.cache = {}
+        };
+        if(init.cache === null){
+            /**@type {memorySpawn} */
+            init.cache[name] = spawn.memory;
+            if(!init.cache[name]){
+                flagElse?console.log("structure.spawns=>start init spawn memori new"):0;
+                init.cache[name] = spawn.memory = memorySpawn;
             }
         }
         
-
-
-        memorySpawn.saveMemory(spawn);
-        return ;
-    }
-
-
-}
-const save = {
-    steck:'',
-    event:[[]],
-    worker: false,
-    idTarget:'',
-}
-let memorySpawn = {
-    save:{},
-    getSteck: function(spawn){
-        flagsconsole?console.log("structure.spawns=>getSteck"):0;
+        spawn.memory = init.cache[name];
+        return 0;
     },
-    step: function(spawn){
-        flagsconsole?console.log("structure.spawns=>step"):0;
-    },
-    saveMemory: function(spawn){
-        flagsconsole?console.log("structure.spawns=>saveMemory"):0;
-        if(this.save[spawn.name] !== undefined){
-            flagsconsole?console.log("save "+this.save[spawn.name]):0;
-            spawn.memory = this.save[spawn.name];
-        }
-    },
+
+
 }

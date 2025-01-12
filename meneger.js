@@ -60,111 +60,8 @@ const creepBuild = {
 var _ = require('lodash');
 
 module.exports = {
-    init: function(){
-        flagsconsole?console.log("meneger init"):0;
-        if(Memory.rooms === undefined){
-            Memory = {rooms:{}};
-            return;
-        }
-        for (let i in Memory.rooms){
-            if(i === "masiveControle"){
-                roomMassiveControle = Memory.rooms[i]
-                continue
-            }
-            position.save[i] = Memory.rooms[i];
-        }
-    },
-    //{spawnName:spawn.name, roomName:spawn.room.name};
-    saveMemory: function(){
-        flagsconsole?console.log("meneger->saveMemory"):0;
-        Memory.rooms = {masiveControle:roomMassiveControle}
-        for (let i in position.save){
-            Memory.rooms[i]=position.save[i];
-        }
-    },
-    step:function(){
-        chekSpawn();
-    }
 
-}
-//interface
-const controleRoom ={
-        nameSpawn:[],
-        coolCreeps:{
-            mainer:0,
-            transport:0,
-            build_controller:0.
-        },
-        nameExitRoom: [],
-        sources_id:[],
-        steck:'',
-}
-const sources = {
-    id:'',
-    cross:0,
-}
-//massive
-let roomMassiveControle = [];
 
-let position = {
-    save:{},
-
-}
-function chekCreepMainer(){
-    flagsconsole?console.log("meneger->chekCreepMainer"):0;
-    let mas = roomMassiveControle;
-    for(let i in mas){
-        let coolMainer = position.save[i].coolCreeps.mainer;
-        let nameSpawn = position.save[i].nameSpawn[0];
-        let lvl = Game.spawns[nameSpawn].room.controller.level;
-        let Sources = position.save[i].sources_id;
-        switch(lvl){
-            case 1:
-                let num = 0;
-                for(let s in Sources){
-                    num +=Sources[s].cros;
-                }
-                if(coolMainer<num){
-                    Game.spawns[nameSpawn].memory.event
-                }
-            break;
-        }
-    }
-}
-
-function chekSpawn(){
-    flagsconsole?console.log("meneger->chekResourcesSpawn"):0;
-    let spawns = Game.spawns;
-    for (let name in spawns){
-        let nameRoom = spawns[name].room.name;
-        if(nameRoom === roomMassiveControle.find(os=>os===nameRoom)){
-            continue;
-        } else {
-            flagsconsole?console.log("-----add"):0;
-            roomMassiveControle.push(nameRoom);
-            roomMassiveControle = roomMassiveControle.filter(function(elem,index,arr){
-                return arr.indexOf(elem) === index
-            });
-        }
-        if(position.save[nameRoom] === undefined){
-            console.log("------meneger->chekResourcesSpawn->create");
-            let date = controleRoom;
-            date.nameSpawn.push(name);
-            let exitRoom = Game.map.describeExits(nameRoom);
-            for(let i in exitRoom){
-                date.nameExitRoom.push(exitRoom[i]);
-            }
-            let target = spawns[name].room.find(FIND_SOURCES);
-        
-            for(let i in target){
-                let s = crossAnalysisArray(target[i],nameRoom);
-                date.sources_id.push({id:target[i].id,cross:s});
-            }
-            position.save[nameRoom] = date;
-        }
-            
-
-    }
 }
 
 function crossAnalysisArray(target,nameRoom){
@@ -182,7 +79,4 @@ function crossAnalysisArray(target,nameRoom){
     })
     return free.length
     
-}
-function lengthSources(){
-
 }

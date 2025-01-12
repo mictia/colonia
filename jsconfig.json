@@ -7,9 +7,4 @@
         "target": "ES6"
       },
       "exclude": ["node_modules", "**/node_modules/*"],
-      "ecmaVersion": 6,
-      "libs": [],
-      "loadEagerly": [
-        "ScreepsAutocomplete/**/*.js"
-      ],
 }
