@@ -64,11 +64,12 @@ let sourceLen = 0;
 module.exports = {
     start: function(){
         flagsconsole?console.log("meneger->start"):0;
-        sourceLen = Memory.rooms.globalSources;
+        let memRoom = Memory.rooms;
+        sourceLen = memRoom.globalSources;
         if(sourceLen === undefined){
             sourceLen = Memory.rooms.globalSources = 0;
         } else {
-            if(Object.keys(Memory.rooms).length <= 1){
+            if(Object.keys(Memory.rooms).length <= 2){
                 analiticRoom();
                 sourceLen = sourcesFreePlain();
             }
