@@ -63,7 +63,7 @@ const creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
 
 module.exports = {
     start: function(){
-        
+        flagsconsole?console.log("meneger->start"):0;
     },
     /**@param {creepLen} creepCool */
     chekCreep: function(creepCool){
@@ -74,6 +74,7 @@ module.exports = {
     }
 }
 function analiticRoom(){
+    flagsconsole?console.log("meneger->analiticRoom"):0;
     for (let name in Game.rooms){
         if(!Game.rooms[name].memory.sources){
             let target = Game.rooms[name].find(FIND_SOURCES);
