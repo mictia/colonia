@@ -18,7 +18,7 @@ module.exports = {
             /**@type {memorySpawn} */
             init.cache[name] = spawn.memory;
             flagElse?console.log("structure.spawns=>start chek !cache "+init.cache[name]):0;
-            if(init.cache[name]===null){
+            if(Object.keys(init.cache[name])=== 0){
                 flagElse?console.log("structure.spawns=>start init spawn memori new"):0;
                 init.cache[name] = spawn.memory = memorySpawn;
             }
