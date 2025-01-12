@@ -76,7 +76,7 @@ module.exports = {
         }
         flagElse?console.log("meneger->analitick creeps.miner"):0;
         if(creepLen.mainer < sourceLen){
-            spawnCreep(type);
+            spawnCreep('spawn', 'mainer');
         }
         Memory.rooms.globalSources = sourceLen
     },
@@ -86,14 +86,14 @@ module.exports = {
     }
 }
 
-function spawnCreep(type){
+function spawnCreep(steck, type){
     flagsconsole?console.log("meneger->spawnCreep"):0;
     for(let i in Game.rooms){
         let nameSpawn = Game.rooms[i].memory.spawns;
         for(let s in nameSpawn){
             if(Game.spawns[nameSpawn[s]].memory.steck !== '') {continue};
-            Game.spawns[nameSpawn[s]].memory.steck = 'spawn';
-            Game.spawns[nameSpawn[s]].memory.role = 'mainer';
+            Game.spawns[nameSpawn[s]].memory.steck = steck;
+            Game.spawns[nameSpawn[s]].memory.role = type;
         }
     }
 }
