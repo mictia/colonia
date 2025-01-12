@@ -16,6 +16,7 @@ module.exports = {
             init.cache = {};
         };
         if(init.cache === null){
+            flagElse?console.log("structure.spawns=>start chek cache === null"):0;
             /**@type {memorySpawn} */
             init.cache[name] = spawn.memory;
             if(!init.cache[name]){
