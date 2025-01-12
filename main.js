@@ -12,7 +12,10 @@ module.exports.loop = function(){
         console.log(room);
         console.log(roomName);
         console.log(room.name);
-        room.memory = room.find(FIND_SOURCES);
+        let sources = room.find(FIND_SOURCES);
+        for (let s in sources){
+            sources[s].room.memory = sources[s];
+        }
     }
     
     /*
