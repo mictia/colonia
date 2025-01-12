@@ -21,6 +21,11 @@ module.exports = {
                 init.cache[name] = spawn.memory = memorySpawn;
             }
         };
+        const mem = init.cache[name];
+        if(mem.steck ===''){
+            spawn.memory = init.cache[name];
+            return undefined;
+        }
         
         spawn.memory = init.cache[name];
         return 0;

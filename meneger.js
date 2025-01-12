@@ -59,8 +59,18 @@ const creepBuild = {
 }
 var _ = require('lodash');
 
-module.exports = {
+const creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
 
+module.exports = {
+    start: function(){
+
+    },
+    chekCreep: function(){
+        
+    },
+    chekSpaw: function(){
+
+    }
 
 }
 
