@@ -60,17 +60,34 @@ const creepBuild = {
 var _ = require('lodash');
 
 const creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
-
+let sourceLen = 0; 
 module.exports = {
     start: function(){
         flagsconsole?console.log("meneger->start"):0;
+        sourceLen = Memory.rooms.globalSources;
+        if(sourceLen === undefined){
+            sourceLen = Memory.rooms.globalSources = 0;
+        }
+
+        if(creepLen.mainer < sourceLen){
+            spawnCreep(type);
+        }
+        Memory.rooms.globalSources = sourceLen
     },
     /**@param {creepLen} creepCool */
     chekCreep: function(creepCool){
         creepLen = creepCool;
-    },
-    chekSpaw: function(){
+    }
+}
 
+function spawnCreep(type){
+    for(let i in Game.rooms){
+        let nameSpawn = Game.rooms[i].memory.spawns;
+        for(let s in nameSpawn){
+            if(Game.spawns[nameSpawn[s]].memory.steck !== '') {continue};
+            Game.spawns[nameSpawn[s]].memory.steck = 'spawn';
+            Game.spawns[nameSpawn[s]].memory.role = 'mainer';
+        }
     }
 }
 function analiticRoom(){
@@ -83,9 +100,15 @@ function analiticRoom(){
                 let id = target[i].id;
                 Game.rooms[name].memory.sources = {[id]:{container:'', worker: a}};
             }
+            let lvl = Game.rooms[name].controller.level;
+            Game.rooms[name].memory.contrLevel = lvl;
+            let spawns = Game.rooms[name].find(FIND_MY_SPAWNS);
+            let cool = [];
+            for (let i in spawns){
+                cool.push(i);
+            }
+            Game.rooms[name].memory.spawns = cool;
         }
-        let lvl = Game.rooms[name].controller.level;
-        Game.rooms[name].memory.contrLevel = lvl;
     }
 }
 function crossAnalysisArray(target,nameRoom){
@@ -103,4 +126,15 @@ function crossAnalysisArray(target,nameRoom){
     })
     return free.length
     
+}
+
+function sourcesFreePlain(){
+    let creepLen = 0;
+    for(let i in Game.rooms){
+        let sourcMem = Game.rooms[i].memory.sources;
+        for(let s in sourcMem){
+            creepLen+=sourcMem[s].worker;
+        }
+    }
+    return creepLen;
 }
