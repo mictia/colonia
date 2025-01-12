@@ -63,30 +63,30 @@ const creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
 
 module.exports = {
     start: function(){
-
+        
     },
     /**@param {creepLen} creepCool */
     chekCreep: function(creepCool){
         creepLen = creepCool;
-        if(creepLen.mainer === 0){
-
-        }
-        if(creepLen.transport === 0){
-            
-        }
-        if(creepLen.build_controller === 0){
-            
-        }
-        if(creepLen.builder === 0){
-            
-        }
     },
     chekSpaw: function(){
 
     }
-
 }
-
+function analiticRoom(){
+    for (let name in Game.rooms){
+        if(!Game.rooms[name].memory.sources){
+            let target = Game.rooms[name].find(FIND_SOURCES);
+            for(let i in target){
+                let a = crossAnalysisArray(target[i],name)
+                let id = target[i].id;
+                Game.rooms[name].memory.sources = {[id]:{container:'', worker: a}};
+            }
+        }
+        let lvl = Game.rooms[name].controller.level;
+        Game.rooms[name].memory.contrLevel = lvl;
+    }
+}
 function crossAnalysisArray(target,nameRoom){
     flagsconsole?console.log("meneger->crossAnalysisArray"):0;
     const room = new Room(nameRoom);
