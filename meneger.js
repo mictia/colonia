@@ -86,7 +86,7 @@ module.exports = {
 }
 
 function spawnCreep(type){
-    flagsconsole?console.log("meneger->start"):0;
+    flagsconsole?console.log("meneger->spawnCreep"):0;
     for(let i in Game.rooms){
         let nameSpawn = Game.rooms[i].memory.spawns;
         for(let s in nameSpawn){
@@ -135,6 +135,7 @@ function crossAnalysisArray(target,nameRoom){
 }
 
 function sourcesFreePlain(){
+    flagsconsole?console.log("meneger->sourcesFreePlain"):0;
     let creepLen = 0;
     for(let i in Game.rooms){
         let sourcMem = Game.rooms[i].memory.sources;

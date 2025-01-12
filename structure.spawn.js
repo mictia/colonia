@@ -11,17 +11,7 @@ module.exports = {
     start:function init(spawn){
         flagsconsole?console.log("structure.spawns=>start"):0;
         let name = spawn.name;
-        if(!init.cache) {
-            init.cache = {};
-            /**@type {memorySpawn} */
-            init.cache[name] = spawn.memory;
-            flagElse?console.log("structure.spawns=>start chek !cache "+init.cache[name]):0;
-            if(Object.keys(init.cache[name]).length=== 0){
-                flagElse?console.log("structure.spawns=>start init spawn memori new"):0;
-                init.cache[name] = spawn.memory = memorySpawn;
-            }
-        };
-        const mem = init.cache[name];
+        let mem = spawn.memory;
         switch(mem.steck){
             case 'spawn':
                 let error = spawn_lvl_creep(spawn, mem.role);
