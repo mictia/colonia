@@ -68,10 +68,10 @@ module.exports = {
         if(sourceLen === undefined){
             sourceLen = Memory.rooms.globalSources = 0;
         } else {
-            sourceLen = sourcesFreePlain();
-        }
-        if(Object.keys(Memory.rooms).length <= 1){
-            analiticRoom();
+            if(Object.keys(Memory.rooms).length <= 1){
+                analiticRoom();
+                sourceLen = sourcesFreePlain();
+            }
         }
 
         if(creepLen.mainer < sourceLen){
