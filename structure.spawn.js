@@ -12,10 +12,10 @@ module.exports = {
         flagsconsole?console.log("structure.spawns=>start"):0;
         let name = spawn.name;
         if(!init.cache) {
-            init.cache = {};
             flagElse?console.log("structure.spawns=>start chek sereealization "+init.cache):0;
+            init.cache = {};
         };
-        if(init.cache === null){
+        if(init.cache[name] === null){
             flagElse?console.log("structure.spawns=>start chek cache === null"):0;
             /**@type {memorySpawn} */
             init.cache[name] = spawn.memory;
