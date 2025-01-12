@@ -13,8 +13,6 @@ module.exports = {
         let name = spawn.name;
         if(!init.cache) {
             init.cache = {};
-        };
-        if(!init.cache[name]){
             /**@type {memorySpawn} */
             init.cache[name] = spawn.memory;
             flagElse?console.log("structure.spawns=>start chek !cache "+init.cache[name]):0;
@@ -22,7 +20,7 @@ module.exports = {
                 flagElse?console.log("structure.spawns=>start init spawn memori new"):0;
                 init.cache[name] = spawn.memory = memorySpawn;
             }
-        }
+        };
         
         spawn.memory = init.cache[name];
         return 0;
