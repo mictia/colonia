@@ -102,7 +102,7 @@ function analiticRoom(){
             for(let i in target){
                 let a = crossAnalysisArray(target[i],name)
                 let id = target[i].id;
-                Game.rooms[name].memory.sources = {[id]:{container:'', worker: a}};
+                Game.rooms[name].memory.sources[id] = {container:'', worker: a};
             }
             let lvl = Game.rooms[name].controller.level;
             Game.rooms[name].memory.contrLevel = lvl;
