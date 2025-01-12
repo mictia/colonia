@@ -59,7 +59,7 @@ const creepBuild = {
 }
 var _ = require('lodash');
 
-const creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
+let creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
 let sourceLen = 0; 
 module.exports = {
     start: function(){
