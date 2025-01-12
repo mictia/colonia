@@ -101,6 +101,7 @@ function analiticRoom(){
     flagsconsole?console.log("meneger->analiticRoom"):0;
     for (let name in Game.rooms){
         if(!Game.rooms[name].memory.sources){
+            Game.rooms[name].memory.sources = {};
             let target = Game.rooms[name].find(FIND_SOURCES);
             for(let i in target){
                 let a = crossAnalysisArray(target[i],name)
