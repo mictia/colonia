@@ -48,6 +48,6 @@ let memorySpawn = {
         if(this.save[spawn.name] !== undefined){
             flagsconsole?console.log("save "+this.save[spawn.name]):0;
             spawn.memory = this.save[spawn.name];
-        } 
+        }
     },
 }
