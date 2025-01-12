@@ -1,12 +1,14 @@
-
+const flagsconsole = true;
+const flagElse = true;
 
 
 
 
 
 module.exports = {
-    run: function(){
-        
+    /**@param {Creep} creeps  */
+    run: function(creeps){
+
     }
 
 

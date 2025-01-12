@@ -1,5 +1,5 @@
-
 const flagsconsole = true;
+const flagElse = true;
 const creepBuild = {
     300: { //lvl 1
         mainer: {
@@ -65,8 +65,21 @@ module.exports = {
     start: function(){
 
     },
-    chekCreep: function(){
-        
+    /**@param {creepLen} creepCool */
+    chekCreep: function(creepCool){
+        creepLen = creepCool;
+        if(creepLen.mainer === 0){
+
+        }
+        if(creepLen.transport === 0){
+            
+        }
+        if(creepLen.build_controller === 0){
+            
+        }
+        if(creepLen.builder === 0){
+            
+        }
     },
     chekSpaw: function(){
 
