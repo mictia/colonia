@@ -12,6 +12,7 @@ module.exports.loop = function(){
         console.log(room);
         console.log(roomName);
         console.log(room.name);
+        room.memory = room.find(FIND_SOURCES);
     }
     
     /*
