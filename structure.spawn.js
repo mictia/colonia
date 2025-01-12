@@ -12,7 +12,7 @@ module.exports = {
         flagsconsole?console.log("structure.spawns=>start"):0;
         let name = spawn.name;
         if(!init.cache) {
-            flagElse?console.log("structure.spawns=>start chek sereealization"):0;
+            flagElse?console.log("structure.spawns=>start chek sereealization "+init.cache):0;
             init.cache = {};
         };
         if(init.cache === null){
