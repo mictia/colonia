@@ -71,7 +71,7 @@ module.exports = {
     start: function(cpu){
         flagsconsole?console.log("meneger->start"):0;
         this.mem = Memory.rooms.memory;
-        if(!this.mem.steck){
+        if(!this.mem){
             Memory.rooms = {};
             this.mem = Memory.rooms.memory = {
                 eventTime:[],
