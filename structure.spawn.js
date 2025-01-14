@@ -10,9 +10,9 @@ module.exports = {
     /**@param {StructureSpawn} spawn */
     start:function init(spawn){
         flagsconsole?console.log("structure.spawns=>start"):0;
-        let name = spawn.name;
         let mem = spawn.memory;
         if(!mem){
+            spawn.memory = {};
             mem = spawn.memory = {steck:'', event:[]};
         }
         switch(mem.steck){
