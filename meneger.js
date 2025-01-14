@@ -98,9 +98,7 @@ module.exports = {
                 Game.rooms[name].memory.contrLevel = lvl;
                 let spawns = Game.rooms[name].find(FIND_MY_SPAWNS);
                 if(!spawns[0]){
-                    if(spawns[0].my){
-                        this.mem.visual.unshift(name);
-                    }
+                    this.mem.visual.unshift(name);
                 }
                 let cool = [];
                 for (let i in spawns){
