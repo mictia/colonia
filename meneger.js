@@ -123,7 +123,7 @@ module.exports = {
         const elepsed = Game.cpu.getUsed() - cpu;
         const room = new RoomVisual(this.mem.visual[0]);
         const startTime = this.mem.Time.bTime; 
-        room.rect(0,0,10,10,{fill:'#f00',lineStyle:'dashed'});
+        room.rect(0,0,5,5,{fill:'#f00',lineStyle:'dotted'});
         room.text('CPU: '+elepsed,1,1,{stroke:'#00ba1f', align:'left',});
         room.text('Time: '+(Game.time - startTime),1,2,{stroke:'#00ba1f', align:'left',});
         for(let a in this.mem.visual){
