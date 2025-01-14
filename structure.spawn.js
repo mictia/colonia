@@ -27,7 +27,8 @@ module.exports = {
 
 }
 /**@param {StructureSpawn} spawn  */
-function spawn_lvl_creep(spawn,role){    
+function spawn_lvl_creep(spawn,role){  
+    flagsconsole?console.log("structure.spawns=>spawn_lvl_creep"):0;  
     const creepEnergis = creepBuild[role].energi;
     const constBody = creepBuild[role].body;
     const maxEnergi = spawn.room.energyCapacityAvailable;
