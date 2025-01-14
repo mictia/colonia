@@ -118,7 +118,7 @@ module.exports = {
     rVisual: function(cpu){
         flagsconsole?console.log("meneger->rVisual"):0;
         const elepsed = Game.cpu.getUsed() - cpu;
-        const room = new RoomVisual(a);
+        const room = new RoomVisual(this.mem.visual[0]);
         room.rect(0,0,10,10,{fill:'#f00',lineStyle:'dashed'});
         room.text('CPU: '+elepsed,1,1,{stroke:'#00ba1f', align:'left',});
         for(let a in this.mem.visual){
