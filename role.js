@@ -1,29 +1,35 @@
 const flagsconsole = true;
 const flagElse = true;
 const mainerCreep = require('./role.mainer');
+const event = require('event');
 
 module.exports = {
     /**@param {Creep} creeps  */
     run:function init(creeps){
         flagsconsole?console.log("role=>run"):0;
-        let chekRole = {mainer:0,transport:0,build_controller:0,builder:0};
+        let creepCount = {event:{},mainer:0,transport:0,build_controller:0,builder:0};
         for (let name in creeps){
             let role = creeps[name].memory.role;
-            this[role](creeps[name]);
-            chekRole[role] += 1;
+            const event = this[role](creeps[name]);
+            creepCount.event[role] = event;
+            creepCount[role] += 1;
         }
-        return chekRole;
+        event.chekRole(creepCount);
     },
+    /**@param {Creep} creeps  */
     mainer: function(creeps){
         flagsconsole?console.log("role=>run=>mainerCreep"):0;
-        mainerCreep.run(creeps)
+        return mainerCreep.run(creeps)
     },
+    /**@param {Creep} creeps  */
     transport: function(creeps){
 
     },
+    /**@param {Creep} creeps  */
     build_controller: function(creeps){
 
     },
+    /**@param {Creep} creeps  */
     builder: function(creeps){
 
     },

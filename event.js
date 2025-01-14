@@ -1,4 +1,6 @@
-let EventEmitter = {
+
+// События
+module.exports = {
     creepCount: {
         event:{},
         mainer:0,
@@ -6,27 +8,19 @@ let EventEmitter = {
         build_controller:0,
         builder:0
     },
+
     creepEvent: [],
     menegEvent: [],
-    on:function(eventName, callback) {
-        if (!this.events[eventName]) {
-            this.events[eventName] = [];
-        }
-        this.events[eventName].push(callback);
-    },
 
-    emit:function(eventName, data) {
-        const callbacks = this.events[eventName];
-        if (callbacks) {
-            callbacks.forEach(callback => callback(data));
-        }
+    chekCreeps: function(creepCount){
+        flagsconsole?console.log("event=>chekCreeps"):0;
+        this.creepCount = creepCount;
     },
-
-    off:function(eventName, callback) {
-        const callbacks = this.events[eventName];
-        if (callbacks) {
-            this.events[eventName] = callbacks.filter(cb => cb !== callback);
-        }
-    },
+    chekSpawn: function(chekSpawn){
+        flagsconsole?console.log("event=>chekSpawn"):0;
+        this.menegEvent = chekSpawn;
+    }
 }
+
+
 

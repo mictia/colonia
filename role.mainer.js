@@ -6,7 +6,9 @@ const flagElse = true;
 
 
 module.exports = {
-    /**@param {Creep} creeps  */
+    /**Возращает событие 
+     * @returns {Object}
+     * @param {Creep} creeps  */
     run: function(creeps){
 
     }

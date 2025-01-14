@@ -1,66 +1,8 @@
 const flagsconsole = true;
 const flagElse = true;
-const creepBuild = {
-    300: { //lvl 1
-        mainer: {
-            body:[WORK,WORK,CARRY,MOVE],
-            name:'mainer-', 
-            mem:{memory:{role:'mainer',steck:"",event:[]}}},
-        transport: {
-            body:[CARRY,MOVE,MOVE],
-            name:'transport-', 
-            mem:{memory:{role:'transport',steck:"",event:[]}}},
-        build_controller:{
-            body:[WORK,WORK,CARRY,MOVE],
-            name:'build_controller-', 
-            mem:{memory:{role:'build_controller',steck:"",event:[]}}},
-        builder: {
-            body:[WORK,WORK,CARRY,MOVE],
-            name:'builder', 
-            mem:{memory:{role:'builder',steck:"",event:[]}}},
-
-    },
-    450: {//lvl 2
-        mainer: {
-            body:[WORK,WORK,WORK,CARRY,MOVE,MOVE], //300 + 150
-            name:'mainer-', 
-            mem:{memory:{role:'mainer',steck:"",event:[]}}},
-        transport: {
-            body:[CARRY,MOVE,MOVE,CARRY,MOVE,MOVE,CARRY,MOVE,MOVE],
-            name:'transport-', 
-            mem:{memory:{role:'transport',steck:"",event:[]}}},
-        build_controller:{
-            body:[WORK,WORK,WORK,CARRY,CARRY,MOVE],
-            name:'build_controller-', 
-            mem:{memory:{role:'build_controller',steck:"",event:[]}}},
-        builder: {
-            body:[WORK,WORK,CARRY,MOVE,MOVE],
-            name:'builder', 
-            mem:{memory:{role:'builder',steck:"",event:[]}}},
-        },
-    800: { //lvl 3
-        mainer: {
-            body:[WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE], //600 +200
-            name:'mainer-', 
-            mem:{memory:{role:'mainer',steck:"",event:[]}}},
-        transport: {
-            body:[CARRY,MOVE,MOVE,CARRY,MOVE,MOVE,CARRY,MOVE,MOVE],
-            name:'transport-', 
-            mem:{memory:{role:'transport',steck:"",event:[]}}},
-        build_controller:{
-            body:[WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,MOVE,MOVE],
-            name:'build_controller-', 
-            mem:{memory:{role:'build_controller',steck:"",event:[]}}},
-        builder: {
-            body:[WORK,WORK,CARRY,MOVE,MOVE,WORK,WORK,CARRY,MOVE,MOVE],
-            name:'builder', 
-            mem:{memory:{role:'builder',steck:"",event:[]}}},
-        },
-}
+const event = require('event');
 var _ = require('lodash');
 
-let creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
- 
 module.exports = {
     //Память
     mem: {
