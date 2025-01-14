@@ -18,19 +18,21 @@ module.exports = {
     },
     /**@param {Creep} creeps  */
     mainer: function(creeps){
-        flagsconsole?console.log("role=>run=>mainerCreep"):0;
+        flagsconsole?console.log("role=>run=>mainer"):0;
         return mainerCreep.run(creeps)
     },
     /**@param {Creep} creeps  */
     transport: function(creeps){
+        flagsconsole?console.log("role=>run=>transport"):0;
 
     },
     /**@param {Creep} creeps  */
     build_controller: function(creeps){
+        flagsconsole?console.log("role=>run=>build_controller"):0;
 
     },
     /**@param {Creep} creeps  */
     builder: function(creeps){
-
+        flagsconsole?console.log("role=>run=>builder"):0;
     },
 }
