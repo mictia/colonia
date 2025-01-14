@@ -62,12 +62,14 @@ var _ = require('lodash');
 let creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
  
 module.exports = {
+    //Память
     mem: {
         eventTime:[],
         steck:[],
         visual:[],
         sTime:{bTime:0,gTime:0},
     },
+    //Начало работы
     start: function(cpu){
         flagsconsole?console.log("meneger->start"):0;
         this.mem = Memory.rooms.memory;
@@ -87,6 +89,7 @@ module.exports = {
         this.rVisual(cpu);
         
     },
+    // Анализ комнаты
     analiticRoom:function(){
         flagsconsole?console.log("meneger->analiticRoom"):0;
         for (let name in Game.rooms){
@@ -115,19 +118,24 @@ module.exports = {
         this.mem.steck.push('Clouse');
     },
 
+    // Визуализация
     rVisual: function(cpu){
         flagsconsole?console.log("meneger->rVisual"):0;
         const elepsed = Game.cpu.getUsed() - cpu;
         const room = new RoomVisual(this.mem.visual[0]);
+        const startTime = this.mem.sTime.bTime; 
         room.rect(0,0,10,10,{fill:'#f00',lineStyle:'dashed'});
         room.text('CPU: '+elepsed,1,1,{stroke:'#00ba1f', align:'left',});
+        room.text('Time: '+(Game.time - startTime),1,2,{stroke:'#00ba1f', align:'left',});
         for(let a in this.mem.visual){
             console.log(a);
-            room.text(this.mem.visual[a],1,2,{stroke:'#00ba1f', align:'left',});
+            room.text(this.mem.visual[a],1,3,{stroke:'#00ba1f', align:'left',});
         }
     }
     
 }
+
+//Анализ свободного место вокруг источника
 function crossAnalysisArray(target,nameRoom){
     flagsconsole?console.log("meneger->crossAnalysisArray"):0;
     const room = new Room(nameRoom);
