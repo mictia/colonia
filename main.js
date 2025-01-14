@@ -6,7 +6,7 @@ const flagElse = true;
 let start = false;
 module.exports.loop = function(){
     flagsconsole?console.log("loop"):0;
-    try{
+   // try{
         const cpu = Game.cpu.getUsed();
         let s = 0;
         for(let i in Game.spawns){
@@ -17,7 +17,7 @@ module.exports.loop = function(){
         */
         //JSON.stringify()
         meneger.start(cpu);
-    } catch(error){
+    //} catch(error){
         console.log('Error: '+ error.stack);
-    }
+    //}
 }
