@@ -119,7 +119,7 @@ module.exports = {
         for(let a in this.mem.visual){
             const room = new RoomVisual(a);
             room.rect(0,0,10,10,{fill:'#f00',lineStyle:'dashed'});
-            room.text('CPU: '+elepsed,1,1,{stroke:'#00ba1f', align:'left',});
+            room.text('CPU: '+elepsed,1,1,{stroke:'#00ba1f', align:'right',});
             room.text(a,1,4,{stroke:'#00ba1f', align:'left',});
         }
     }
