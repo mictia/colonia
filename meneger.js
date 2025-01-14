@@ -67,7 +67,7 @@ module.exports = {
         eventTime:[],
         steck:[],
         visual:[],
-        sTime:{bTime:0,gTime:0},
+        Time:{bTime:0,gTime:0},
     },
     //Начало работы
     start: function(cpu){
@@ -79,7 +79,7 @@ module.exports = {
                 eventTime:[],
                 steck:['analiticRoom'],
                 visual:[],
-                sTime:{bTime:Game.time,gTime:0},
+                Time:{bTime:Game.time,gTime:0},
             };
         }
         if(this.mem.steck[0] !== 'Clouse'){
@@ -122,7 +122,7 @@ module.exports = {
         flagsconsole?console.log("meneger->rVisual"):0;
         const elepsed = Game.cpu.getUsed() - cpu;
         const room = new RoomVisual(this.mem.visual[0]);
-        const startTime = this.mem.sTime.bTime; 
+        const startTime = this.mem.Time.bTime; 
         room.rect(0,0,10,10,{fill:'#f00',lineStyle:'dashed'});
         room.text('CPU: '+elepsed,1,1,{stroke:'#00ba1f', align:'left',});
         room.text('Time: '+(Game.time - startTime),1,2,{stroke:'#00ba1f', align:'left',});
