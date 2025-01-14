@@ -84,10 +84,9 @@ module.exports = {
         }
         if(this.mem.steck[0] !== 'Clouse'){
             this[this.mem.steck[0]]();
-            return ;
         }
         this.rVisual(cpu);
-        
+        Memory.rooms.memory = this.mem;
     },
     // Анализ комнаты
     analiticRoom:function(){
