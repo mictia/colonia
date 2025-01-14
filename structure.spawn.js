@@ -12,6 +12,9 @@ module.exports = {
         flagsconsole?console.log("structure.spawns=>start"):0;
         let name = spawn.name;
         let mem = spawn.memory;
+        if(!mem){
+            mem = spawn.memory = {steck:'', event:[]};
+        }
         switch(mem.steck){
             case 'spawn':
                 let error = spawn_lvl_creep(spawn, mem.role);
