@@ -85,6 +85,7 @@ module.exports = {
             return ;
         }
         this[this.mem.steck[0]]();
+        
     },
     analiticRoom:function(){
         flagsconsole?console.log("meneger->analiticRoom"):0;
