@@ -81,7 +81,7 @@ module.exports = {
             };
         }
         this[this.mem.steck[0]]();
-        this.RoomVisual(cpu);
+        this.rVisual(cpu);
     },
     analiticRoom:function(){
         flagsconsole?console.log("meneger->analiticRoom"):0;
@@ -112,7 +112,7 @@ module.exports = {
         this.mem.steck.shift();
         this.mem.steck.push('RoomVisual');
     },
-    RoomVisual: function(cpu){
+    rVisual: function(cpu){
         const elepsed = Game.cpu.getUsed() - cpu;
         for(let a in this.mem.visual){
             const room = new RoomVisual(a);
