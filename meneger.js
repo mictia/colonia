@@ -77,11 +77,14 @@ module.exports = {
                 eventTime:[],
                 steck:['analiticRoom'],
                 visual:[],
-                sTime:{bTime:0,gTime:0},
+                sTime:{bTime:Game.time,gTime:0},
             };
         }
+        if(this.mem.steck[0] === 'Clouse'){
+            this.rVisual(cpu);
+            return ;
+        }
         this[this.mem.steck[0]]();
-        this.rVisual(cpu);
     },
     analiticRoom:function(){
         flagsconsole?console.log("meneger->analiticRoom"):0;
@@ -97,7 +100,7 @@ module.exports = {
                 let lvl = Game.rooms[name].controller.level;
                 Game.rooms[name].memory.contrLevel = lvl;
                 let spawns = Game.rooms[name].find(FIND_MY_SPAWNS);
-                if(!spawns[0]){
+                if(spawns[0]){
                     this.mem.visual.unshift(name);
                 }
                 let cool = [];
@@ -108,7 +111,7 @@ module.exports = {
             }
         }
         this.mem.steck.shift();
-        this.mem.steck.push('RoomVisual');
+        this.mem.steck.push('Clouse');
     },
     rVisual: function(cpu){
         const elepsed = Game.cpu.getUsed() - cpu;
