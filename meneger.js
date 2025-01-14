@@ -72,6 +72,7 @@ module.exports = {
         flagsconsole?console.log("meneger->start"):0;
         this.mem = Memory.rooms.memory;
         if(!this.mem.steck){
+            Memory.rooms = {};
             this.mem = Memory.rooms.memory = {
                 eventTime:[],
                 steck:['analiticRoom'],
