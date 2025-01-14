@@ -11,7 +11,7 @@ module.exports = {
     start:function init(spawn){
         flagsconsole?console.log("structure.spawns=>start"):0;
         let mem = spawn.memory;
-        if(!mem){
+        if(!mem.steck){
             console.log('structure.spawns=>start:mem');
             mem = spawn.memory = {steck:[],getId:'',role:'',energiType:0};
         }
