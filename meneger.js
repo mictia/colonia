@@ -60,64 +60,67 @@ const creepBuild = {
 var _ = require('lodash');
 
 let creepLen = {mainer:0,transport:0,build_controller:0,builder:0};
-let sourceLen = 0; 
+ 
 module.exports = {
-    start: function(){
-        flagsconsole?console.log("meneger->start"):0;
-        let memRoom = Memory.rooms;
-        sourceLen = memRoom.globalSources;
-        if(sourceLen === undefined){
-            sourceLen = Memory.rooms.globalSources = 0;
-        } else {
-            if(Object.keys(Memory.rooms).length <= 2){
-                analiticRoom();
-                sourceLen = sourcesFreePlain();
-            }
-        }
-        flagElse?console.log("meneger->analitick creeps.miner"):0;
-        if(creepLen.mainer < sourceLen){
-            spawnCreep('spawn', 'mainer');
-        }
-        Memory.rooms.globalSources = sourceLen
+    mem: {
+        eventTime:[],
+        steck:[],
+        visual:[],
+        sTime:{bTime:0,gTime:0},
     },
-    /**@param {creepLen} creepCool */
-    chekCreep: function(creepCool){
-        creepLen = creepCool;
-    }
-}
-
-function spawnCreep(steck, type){
-    flagsconsole?console.log("meneger->spawnCreep"):0;
-    for(let i in Game.rooms){
-        let nameSpawn = Game.rooms[i].memory.spawns;
-        for(let s in nameSpawn){
-            if(Game.spawns[nameSpawn[s]].memory.steck !== '') {continue};
-            Game.spawns[nameSpawn[s]].memory.steck = steck;
-            Game.spawns[nameSpawn[s]].memory.role = type;
+    start: function(cpu){
+        flagsconsole?console.log("meneger->start"):0;
+        this.mem = Memory.rooms.memory;
+        if(!this.mem.steck){
+            this.mem = Memory.rooms.memory = {
+                eventTime:[],
+                steck:['analiticRoom'],
+                visual:[],
+                sTime:{bTime:0,gTime:0},
+            };
+        }
+        this[this.mem.steck[0]]();
+        this.RoomVisual(cpu);
+    },
+    analiticRoom:function(){
+        flagsconsole?console.log("meneger->analiticRoom"):0;
+        for (let name in Game.rooms){
+            if(!Game.rooms[name].memory.sources){
+                Game.rooms[name].memory.sources = {};
+                let target = Game.rooms[name].find(FIND_SOURCES);
+                for(let i in target){
+                    let a = crossAnalysisArray(target[i],name)
+                    let id = target[i].id;
+                    Game.rooms[name].memory.sources[id] = {container:'', worker: a};
+                }
+                let lvl = Game.rooms[name].controller.level;
+                Game.rooms[name].memory.contrLevel = lvl;
+                let spawns = Game.rooms[name].find(FIND_MY_SPAWNS);
+                if(!spawns[0]){
+                    if(spawns[0].my){
+                        this.mem.visual.unshift(name);
+                    }
+                }
+                let cool = [];
+                for (let i in spawns){
+                    cool.push(spawns[i].name);
+                }
+                Game.rooms[name].memory.spawns = cool;
+            }
+        }
+        this.mem.steck.shift();
+        this.mem.steck.push('RoomVisual');
+    },
+    RoomVisual: function(cpu){
+        const elepsed = Game.cpu.getUsed() - cpu;
+        for(let a in this.mem.visual){
+            const room = new RoomVisual(a);
+            room.rect(0,0,10,10,{fill:'#f00',lineStyle:'dashed'});
+            room.text('CPU: '+elepsed,1,1,{stroke:'#00ba1f', align:'left',});
+            room.text(a,2,1,{stroke:'#00ba1f', align:'left',});
         }
     }
-}
-function analiticRoom(){
-    flagsconsole?console.log("meneger->analiticRoom"):0;
-    for (let name in Game.rooms){
-        if(!Game.rooms[name].memory.sources){
-            Game.rooms[name].memory.sources = {};
-            let target = Game.rooms[name].find(FIND_SOURCES);
-            for(let i in target){
-                let a = crossAnalysisArray(target[i],name)
-                let id = target[i].id;
-                Game.rooms[name].memory.sources[id] = {container:'', worker: a};
-            }
-            let lvl = Game.rooms[name].controller.level;
-            Game.rooms[name].memory.contrLevel = lvl;
-            let spawns = Game.rooms[name].find(FIND_MY_SPAWNS);
-            let cool = [];
-            for (let i in spawns){
-                cool.push(spawns[i].name);
-            }
-            Game.rooms[name].memory.spawns = cool;
-        }
-    }
+    
 }
 function crossAnalysisArray(target,nameRoom){
     flagsconsole?console.log("meneger->crossAnalysisArray"):0;
@@ -134,16 +137,4 @@ function crossAnalysisArray(target,nameRoom){
     })
     return free.length
     
-}
-
-function sourcesFreePlain(){
-    flagsconsole?console.log("meneger->sourcesFreePlain"):0;
-    let creepLen = 0;
-    for(let i in Game.rooms){
-        let sourcMem = Game.rooms[i].memory.sources;
-        for(let s in sourcMem){
-            creepLen+=sourcMem[s].worker;
-        }
-    }
-    return creepLen;
 }
