@@ -80,11 +80,11 @@ module.exports = {
                 sTime:{bTime:Game.time,gTime:0},
             };
         }
-        if(this.mem.steck[0] === 'Clouse'){
-            this.rVisual(cpu);
+        if(this.mem.steck[0] !== 'Clouse'){
+            this[this.mem.steck[0]]();
             return ;
         }
-        this[this.mem.steck[0]]();
+        this.rVisual(cpu);
         
     },
     analiticRoom:function(){
