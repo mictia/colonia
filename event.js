@@ -30,4 +30,3 @@ let EventEmitter = {
     },
 }
 
-module.exports = EventEmitter;

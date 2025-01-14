@@ -1,5 +1,5 @@
 const meneger = require('meneger');
-const role = require('role');
+//const role = require('role');
 const spawner = require('structure.spawn');
 const flagsconsole = true;
 const flagElse = true;
@@ -9,9 +9,9 @@ module.exports.loop = function(){
    // try{
         const cpu = Game.cpu.getUsed();
         let s = 0;
-        for(let i in Game.spawns){
+        /*for(let i in Game.spawns){
             spawner.start(Game.spawns[i]);
-        }
+        }*/
         /*
         role.run(Game.creeps);
         */
