@@ -12,7 +12,7 @@ module.exports.loop = function(){
         for(let i in Game.spawns){
             spawner.start(Game.spawns[i]);
         }
-        role.run(Game.creeps);
+        //role.run(Game.creeps);
         //JSON.stringify()
         meneger.start(cpu);
     } catch(error){
