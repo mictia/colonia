@@ -115,13 +115,14 @@ module.exports = {
         this.mem.steck.push('Clouse');
     },
     rVisual: function(cpu){
+        flagsconsole?console.log("meneger->rVisual"):0;
         const elepsed = Game.cpu.getUsed() - cpu;
         for(let a in this.mem.visual){
             console.log(a);
             const room = new RoomVisual(a);
             room.rect(0,0,10,10,{fill:'#f00',lineStyle:'dashed'});
             room.text('CPU: '+elepsed,1,1,{stroke:'#00ba1f', align:'left',});
-            room.text(String(a),1,2,{stroke:'#00ba1f', align:'left',});
+            room.text(this.mem.visual[a],1,2,{stroke:'#00ba1f', align:'left',});
         }
     }
     
