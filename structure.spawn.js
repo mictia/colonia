@@ -12,7 +12,6 @@ module.exports = {
         flagsconsole?console.log("structure.spawns=>start"):0;
         let mem = spawn.memory;
         if(!mem){
-            spawn.memory = {};
             mem = spawn.memory = {steck:[], event:[]};
         }
         switch(mem.steck){
