@@ -9,12 +9,10 @@ module.exports.loop = function(){
    try{
         const cpu = Game.cpu.getUsed();
         let s = 0;
-        /*for(let i in Game.spawns){
+        for(let i in Game.spawns){
             spawner.start(Game.spawns[i]);
-        }*/
-        /*
+        }
         role.run(Game.creeps);
-        */
         //JSON.stringify()
         meneger.start(cpu);
     } catch(error){
