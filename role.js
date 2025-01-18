@@ -7,14 +7,19 @@ module.exports = {
     /**@param {Creep} creeps  */
     run:function init(creeps){
         flagsconsole?console.log("role=>run"):0;
+        // Регистрации количества крипов по ролям
         let creepCount = {event:{},mainer:0,transport:0,build_controller:0,builder:0};
         for (let name in creeps){
+            //считывание ролей крипов
             let role = creeps[name].memory.role;
-            const event = this[role](creeps[name]);
+            //Вызов функции по роли *****Дописать передачу события глобального уровня
+            this[role](creeps[name]);
+            // локальное событие крипов
             creepCount.event[role] = event;
+            // Подсчет крипов по ролям
             creepCount[role] += 1;
         }
-        event.chekRole(creepCount);
+        
     },
     /**@param {Creep} creeps  */
     mainer: function(creeps){

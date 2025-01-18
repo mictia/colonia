@@ -24,7 +24,9 @@ module.exports = {
         spawn.memory = mem;
         return undefined;
     },
+    chekRoom:function(){
 
+    }
 
 }
 /**@param {StructureSpawn} spawn  */
