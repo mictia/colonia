@@ -60,7 +60,7 @@ module.exports = {
         flagsconsole?console.log("meneger->start"):0;
         this.mem = Memory.rooms.memory.global;
         if(!this.mem.steck){
-            Memory.rooms = {};
+            Memory.rooms.global = {};
             this.mem = Memory.rooms.memory.global = {
                 eventTime:[],
                 oppCode:'',
