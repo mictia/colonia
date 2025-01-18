@@ -38,4 +38,4 @@ const event = (function(){
         };
 })();
 
-export {event};
+module.exports =  event;
